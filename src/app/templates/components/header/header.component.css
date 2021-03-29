@@ -1,0 +1,8 @@
+.navbar{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+}
+#navbarNav{
+    align-items: center;
+}
