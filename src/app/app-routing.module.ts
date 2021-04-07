@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TemplateAdminComponent } from './templates/template-admin/template-admin.component';
 import { TemplatePrincipalComponent } from './templates/template-principal/template-principal.component';
 
 const routes: Routes = [
@@ -19,6 +20,9 @@ const routes: Routes = [
   {
     path:'auth',
     loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule)
+  },
+  {
+    path:'admin', component: TemplateAdminComponent
   }
 ];
 

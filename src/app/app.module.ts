@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { TemplatePrincipalComponent } from './templates/template-principal/template-principal.component';
 import { HeaderComponent } from './templates/components/header/header.component';
 import { FooterComponent } from './templates/components/footer/footer.component';
+import { TemplateAdminComponent } from './templates/template-admin/template-admin.component';
+import { SidebarComponent } from './templates/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplatePrincipalComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TemplateAdminComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
