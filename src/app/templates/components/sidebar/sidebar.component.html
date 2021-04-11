@@ -1,15 +1,157 @@
-<input type="checkbox" id="check">
-<label for="check">
-    <i class="fa fa-bars" id="btn"></i>
-    <i class="fa fa-times" id="cancel"></i>
-</label>
-<div class="sidebar">
-    <header>My App</header>
-    <ul>
-        <li><a href=""><i class="fa fa-tachometer"></i> Dashboard</a></li>
-        <li><a href=""><i class="fa fa-users "></i> Usuarios</a></li>
-        <li><a href=""><i class="fa fa-building "></i> Sucursales</a></li>
-        <li><a href=""><i class="fa fa-product-hunt"></i> Productos</a></li>
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fa fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Admin</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['admin']">
+                <i class="fa fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Restaurante
+        </div>
+
+        <!-- Nav Item - Sucursales Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursales"
+                aria-expanded="true" aria-controls="collapseSucursales">
+                <i class="fa fa-building"></i>
+                <span>Sucursales</span>
+            </a>
+            <div id="collapseSucursales" class="collapse" aria-labelledby="headingSucursales" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Administrar sucursales</h6>
+                    <a class="collapse-item" href="buttons.html">Sucursales</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Usuarios Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+                aria-expanded="true" aria-controls="collapseUsuarios">
+                <i class="fa fa-users"></i>
+                <span>Usuarios</span>
+            </a>
+            <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">General</h6>
+                    <a class="collapse-item" href="usuarios-other.html">Usuarios</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Ajustes de usuarios</h6>
+                    <a class="collapse-item" href="usuarios-color.html">Agregar Usuario</a>
+                    <a class="collapse-item" href="usuarios-border.html">Editar usuario</a>
+                    <a class="collapse-item" href="usuarios-animation.html">Eliminar usuario</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Productos Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMisProductos"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fa fa-apple"></i>
+                <span>Productos</span>
+            </a>
+            <div id="collapseMisProductos" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">General</h6>
+                    <a class="collapse-item" href="login.html">Productos</a>
+                    <a class="collapse-item" href="register.html">Categorias</a>
+                    <a class="collapse-item" href="forgot-password.html">Grupos de modificadores</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - MisProductos Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fa fa-apple"></i>
+                <span>Mis Productos</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">General</h6>
+                    <a class="collapse-item" href="login.html">Productos</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Ordenes -->
+        <li class="nav-item">
+            <a class="nav-link" href="tables.html">
+                <i class="fa fa-fw fa-table"></i>
+                <span>Ordenes</span></a>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Ajustes de cuenta
+        </div>
+
+         <!-- Nav Item - Ajustes de cuenta -->
+         <li class="nav-item">
+            <a class="nav-link" href="tables.html">
+                <i class="fa fa-fw fa-wrench"></i>
+                <span>Mi cuenta</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
     </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+            <app-topbar></app-topbar>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Michael&Harold 2021</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
 </div>
-<section></section>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+</a>

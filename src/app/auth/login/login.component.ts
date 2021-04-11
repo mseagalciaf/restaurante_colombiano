@@ -8,9 +8,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  public checkoutForm = this.formBuilder.group({
+  public checkoutLoginForm = this.formBuilder.group({
     email: '',
-    contraseña: ''
+    password : ''
   });
 
   constructor(private formBuilder: FormBuilder) { }
