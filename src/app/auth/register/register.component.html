@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 login-sec">
                 <h2 class="text-center">Registrar</h2>
-                <form [formGroup]="checkoutForm" class="login-form">
+                <form [formGroup]="checkoutRegisterForm" (ngSubmit)="onRegister(checkoutRegisterForm.value)" class="register-form">
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="text-uppercase">Nombre</label>
                         <input type="text" class="form-control" placeholder="" formControlName="name">
@@ -22,7 +22,7 @@
 
                     <div class="form-check">
 
-                        <button type="submit" class="btn btn-success btn-block mx-auto ">Registrar</button>
+                        <button type="submit" [disabled]="checkoutRegisterForm.invalid" class="btn btn-success btn-block mx-auto ">Registrar</button>
                         <a class="d-block  mt-2 small float-right" [routerLink]="['/auth/login']">Ya tienes una cuenta? Inicia Sesion</a>
                     </div>
 

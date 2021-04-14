@@ -22,12 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule)
   },
   {
-    path:'admin', component: TemplateAdminComponent, children:[
-      {
-        
-      }
-    ]
-  }
+    path:'admin', component: TemplateAdminComponent  }
 ];
 
 @NgModule({
