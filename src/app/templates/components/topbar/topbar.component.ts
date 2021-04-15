@@ -9,7 +9,11 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(private authApi:AuthServiceService, private router:Router) { }
+  myName:string;
+  
+  constructor(private authApi:AuthServiceService, private router:Router) { 
+    this.myName = JSON.parse(localStorage.getItem('currentUser'))['name'];
+  }
 
   ngOnInit(): void {
   }
