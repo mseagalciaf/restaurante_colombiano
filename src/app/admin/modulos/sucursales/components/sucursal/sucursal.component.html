@@ -10,23 +10,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Sucursal 1</td>
-          <td><button class="btn btn btn-secondary">Pereira</button><button class="btn btn-secondary" >Dosquebradas</button><button class="btn btn-secondary" >Santa Rosa</button></td>
+        <tr *ngFor="let sucursal of sucursales">
+          <th scope="row">{{sucursal.id}}</th>
+          <td>{{sucursal.name}}</td>
+          <td><button class="btn btn btn-secondary">{{sucursal.city_name}}</button></td>
           <td><button class="btn btn btn-warning"><i class="fa fa-edit"></i></button><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Sucursal 2</td>
-          <td><button class="btn btn-secondary" >Armenia</button></td>
-          <td><button class="btn btn-warning"><i class="fa fa-edit"></i></button><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Sucursal 3</td>
-          <td><button class="btn btn-secondary" >Bogotá</button></td>
-          <td><button class="btn btn-warning"><i class="fa fa-edit"></i></button><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
         </tr>
       </tbody>
     </table>

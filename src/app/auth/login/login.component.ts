@@ -31,16 +31,12 @@ export class LoginComponent implements OnInit {
 
     this.authApi.login(credentials).subscribe(
       data =>{
-      this.authApi.setToken(data.access_token);
-      this.authApi.setCurrentUser(data.user);
-      this.authApi.roleRoute(data.user.roles[0].id);
-    },
-    error => console.log(error)
+        this.authApi.setToken(data.access_token);
+        this.authApi.setCurrentUser(data.user);
+        this.authApi.roleRoute(data.user.roles[0].id);
+      },
+      error => console.log(error)
     );
-    
-
   }
-
-  
 
 }

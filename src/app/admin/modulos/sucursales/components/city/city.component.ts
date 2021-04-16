@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CityInterface } from 'src/app/interfaces/city-interface';
+import { CityService } from 'src/app/services/city.service';
 
 @Component({
   selector: 'app-city',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CityComponent implements OnInit {
 
-  constructor() { }
+  cities:CityInterface;
+
+  constructor(private cityService: CityService) {
+    this.getAll();
+   }
 
   ngOnInit(): void {
   }
 
+  getAll(){
+    this.cityService.getAllCities().subscribe(
+      resp => {
+        this.cities=resp.data
+      },
+      error => console.log(error)
+    )
+  }
 }
