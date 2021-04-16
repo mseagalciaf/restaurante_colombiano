@@ -5,11 +5,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['admin']">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fa fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Admin</div>
+            <div class="sidebar-brand-text mx-3" >Admin</div>
         </a>
 
         <!-- Divider -->
@@ -40,7 +40,8 @@
             <div id="collapseSucursales" class="collapse" aria-labelledby="headingSucursales" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Administrar sucursales</h6>
-                    <a class="collapse-item" href="buttons.html">Sucursales</a>
+                    <a class="collapse-item" [routerLink]= "['sucursales']" >Sucursales</a>
+                    <a class="collapse-item" [routerLink]= "['sucursales/city']">Ciudades</a>
                 </div>
             </div>
         </li>
@@ -56,7 +57,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">General</h6>
-                    <a class="collapse-item" href="usuarios-other.html">Usuarios</a>
+                    <a class="collapse-item" [routerLink]= "['users']">Usuarios</a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Ajustes de usuarios</h6>
                     <a class="collapse-item" href="usuarios-color.html">Agregar Usuario</a>

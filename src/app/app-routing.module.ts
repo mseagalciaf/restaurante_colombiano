@@ -25,6 +25,10 @@ const routes: Routes = [
       {
         path: 'sucursales',
         loadChildren: () => import('./admin/modulos/sucursales/sucursales.module').then(mod => mod.SucursalesModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./admin/modulos/users/users.module').then(mod => mod.UsersModule)
       }
       
     ]
