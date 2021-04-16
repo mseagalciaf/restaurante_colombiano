@@ -21,9 +21,7 @@ export class SucursalComponent implements OnInit {
   getAll(){
     this.sucursalService.getAllSucursales().subscribe(
       resp => {
-        this.sucursales=resp.data;
-        console.log(this.sucursales);
-        
+        this.sucursales=resp.data;        
       },
       error => console.log(error)      
     )

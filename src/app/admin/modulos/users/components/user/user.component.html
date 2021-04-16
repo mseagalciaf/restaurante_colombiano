@@ -1,42 +1,22 @@
 <div class="row ml-4" >
-    <button class="btn">
+    <button class="btn" *ngFor="let user of users">
         <div class="card " style="width: 18rem; border-bottom: 0%; padding-bottom: -50px;">
             
             <span class="badge bg-success text-white offset-9">Activo</span>
             <div class="card-body">
                 <div class="col-12 text-center">
-                    <h4 class="card-title">Jaimito Perez</h4>
+                    <h4 class="card-title">{{user.name}}</h4>
                 </div>
                 <div class="row text-secondary">
-                    <div class="col-12">
-                        <p>Administrador</p>
+                    <div class="col-12" >
+                        <p>{{user.roles[0]}}</p>
                     </div>
                     <div class="col-12">
-                        <p>jaimitoperez@gmail.com</p>
+                        <p>{{user.email}}</p>
                     </div>
                 </div>
             </div>
-            <span class="badge bg-info text-white" style="border-radius: 0%; padding-bottom: 3%;">Pereira</span>
+            <span class="badge bg-info text-white" style="border-radius: 0%; padding-bottom: 3%;">{{user.id}}</span>
         </div>
     </button>
-    <button class="btn">
-        <div class="card " style="width: 18rem; border-bottom: 0%; padding-bottom: -50px;">
-            
-            <span class="badge bg-danger text-white offset-9">Inactivo</span>
-            <div class="card-body">
-                <div class="col-12 text-center">
-                    <h4 class="card-title">Michael Moncada</h4>
-                </div>
-                <div class="row text-secondary">
-                    <div class="col-12">
-                        <p>Administrador</p>
-                    </div>
-                    <div class="col-12">
-                        <p>michael@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            <span class="badge bg-info text-white" style="border-radius: 0%; padding-bottom: 3%;">Pereira</span>
-        </div>
-    </button>  
 </div>
