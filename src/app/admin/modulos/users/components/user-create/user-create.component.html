@@ -31,8 +31,10 @@
                     </select>
                 </div>
             </div>
-            <button *ngIf="!isEdit" type="submit" [disabled]="checkoutUserCreateForm.invalid" class="btn btn-primary">Crear usuario</button>
-            <button *ngIf="isEdit" type="button" (click)="updateUser(checkoutUserCreateForm.value)" class="btn btn-warning">Actualizar usuario</button>
+            <button *ngIf="!isEdit" type="submit" [disabled]="checkoutUserCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+            <button *ngIf="isEdit" type="button" (click)="updateUser(checkoutUserCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+            <button *ngIf="isEdit" type="button" (click)="deleteUser()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
+            <button  type="button" [routerLink]="['/admin/users/user']" class="btn btn-secondary mr-2">Cancelar</button>
         </form>
     </div>
 </div>

@@ -80,6 +80,15 @@ export class UserCreateComponent implements OnInit {
     )
   }
 
+  deleteUser(id: number = this.user_id){
+    this.userService.deleteUser(id).subscribe(
+      resp => {
+        this.router.navigate(['/admin/users/user'])
+      },
+      error => console.log(error)      
+    )
+  }
+
   getUser(user_id:number){
     this.userService.getUSer(user_id).subscribe(
       resp => {

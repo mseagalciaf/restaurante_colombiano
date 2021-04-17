@@ -36,4 +36,8 @@ export class UserService {
     return this.http.put(customUrl,dataForm,{headers: this.headers})
   }
 
+  deleteUser(id:number):Observable<any>{
+    let customUrl = this.url+'users/'+id;
+    return this.http.delete(customUrl,{headers: this.headers})
+  }
 }

@@ -13,7 +13,7 @@
         </div>
     </button>
     <!--    Created users   -->
-    <button class="btn" *ngFor="let user of users">
+    <button class="btn" *ngFor="let user of users" [routerLink]="['/admin/users/edit/',user.id]">
         <div class="card " style="width: 18rem; border-bottom: 0%; padding-bottom: -50px;">
             
             <span class="badge bg-success text-white offset-9">Activo</span>
