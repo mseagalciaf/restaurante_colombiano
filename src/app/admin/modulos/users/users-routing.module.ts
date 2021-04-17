@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'create', component: UserCreateComponent
   },
   {
-    path: 'edit/:id', component: UserEditComponent
+    path: 'edit/:id', component: UserCreateComponent
   },
   {
     path: '', redirectTo: 'user', pathMatch: 'full'

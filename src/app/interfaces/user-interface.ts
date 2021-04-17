@@ -6,5 +6,5 @@ export interface UserInterface {
     sucursale_name: string,
     created_at?: string,
     updated_at?: string,
-    roles: Array<string> 
+    roles: Array<any> 
 }

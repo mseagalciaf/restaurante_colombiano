@@ -12,6 +12,7 @@ export class UserService {
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
+  
 
   constructor(private http: HttpClient) { }
 
@@ -20,8 +21,19 @@ export class UserService {
     return this.http.get(customUrl,{headers:this.headers})
   }
 
+  getUSer(id:number): Observable<any>{
+    let customUrl = this.url+'users/'+id;
+    return this.http.get(customUrl,{headers: this.headers});
+  }
+
   createUser(dataForm:UserInterface): Observable<any>{
     let customUrl = this.url+'users';
     return this.http.post(customUrl,dataForm,{headers:this.headers})
   }
+
+  updateUser(dataForm:UserInterface,id:number): Observable<any>{
+    let customUrl = this.url+'users/'+id;
+    return this.http.put(customUrl,dataForm,{headers: this.headers})
+  }
+
 }

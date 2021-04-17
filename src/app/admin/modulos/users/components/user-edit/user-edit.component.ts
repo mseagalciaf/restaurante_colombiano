@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { UserService } from 'src/app/services/user.service';
 export class UserEditComponent implements OnInit {
 
   constructor(
+    private route:ActivatedRoute
   ) { 
      
   }
 
   ngOnInit(): void {
-    //console.log(this.ruta);
+    console.log(this.route.snapshot.params.id);
   }
+  
+
   
 }
