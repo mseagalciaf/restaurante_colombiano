@@ -1,18 +1,35 @@
 <div class="row ml-4" >
+    <!-- Card for Create a new user -->
+    <button class="btn" [routerLink]="['/admin/users/create']">
+        <div class="card " style="width: 18rem; border-bottom: 0%; padding-bottom: -50px;">
+            <div class="card-body">
+                <div class="col-12 text-center">
+                    <img class="card-plus" src="../../../../../../assets/img/admin/plus.png" style="width: 100px; height: 100px;" alt="">
+                </div>
+                <div class="col-12">
+                    <h4 class="text-secondary">Crear usuario</h4>
+                </div>
+            </div>
+        </div>
+    </button>
+    <!--    Created users   -->
     <button class="btn" *ngFor="let user of users">
         <div class="card " style="width: 18rem; border-bottom: 0%; padding-bottom: -50px;">
             
             <span class="badge bg-success text-white offset-9">Activo</span>
             <div class="card-body">
                 <div class="col-12 text-center">
+                    <img style="width: 60px; height: 60px;" src="../../../../../../assets/img/perfil/chico.png" alt="">
+                </div>
+                <div class="col-12 text-center">
                     <h4 class="card-title">{{user.name}}</h4>
                 </div>
                 <div class="row text-secondary">
                     <div class="col-12" >
-                        <p>{{user.roles[0]}}</p>
+                        <p><i class="fa fa-user text-info mr-2"></i>{{user.roles[0]}}</p>
                     </div>
                     <div class="col-12">
-                        <p>{{user.email}}</p>
+                        <p><i class="fa fa-envelope text-info mr-2"></i>{{user.email}}</p>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,6 @@
-import { stringify } from '@angular/compiler/src/util';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { LoginInterface } from 'src/app/interfaces/login-interface';
 import { AuthServiceService } from '../../services/auth-service.service'
 
@@ -20,8 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder, 
-    private authApi:AuthServiceService,
-    private router: Router
+    private authApi:AuthServiceService
     ) { }
 
   ngOnInit(): void {

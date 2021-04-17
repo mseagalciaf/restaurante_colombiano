@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserInterface } from '../interfaces/user-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,10 @@ export class UserService {
   getAllUsers(): Observable<any>{
     let customUrl = this.url+'users';
     return this.http.get(customUrl,{headers:this.headers})
+  }
+
+  createUser(dataForm:UserInterface): Observable<any>{
+    let customUrl = this.url+'users';
+    return this.http.post(customUrl,dataForm,{headers:this.headers})
   }
 }
