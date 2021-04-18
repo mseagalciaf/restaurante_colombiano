@@ -21,7 +21,7 @@ export class UserCreateComponent implements OnInit {
 
   //------- Parameters for Form----------
   roles:Array<string>;
-  sucursales: SucursalInterface;
+  sucursales: Array<SucursalInterface>;
   public checkoutUserCreateForm = this.formBuilder.group({
     name: ['', Validators.required],
     role_id: ['', Validators.required],

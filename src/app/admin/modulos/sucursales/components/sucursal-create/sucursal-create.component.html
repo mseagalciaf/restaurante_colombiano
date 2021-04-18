@@ -1,0 +1,22 @@
+<div class="container offset-1 text-secondary">
+    <div class="col-8">
+        <form [formGroup]="checkoutSucursalCreateForm" (ngSubmit)="createSucursal(checkoutSucursalCreateForm.value)" >
+            <div class="form-row">
+                <div class="form-group col-8">
+                    <label >Nombre Sucursal</label>
+                    <input type="text" class="form-control" id="inputName" formControlName="name" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Seleccione una ciudad</label>
+                    <select id="inputCity" class="form-control" formControlName="city_id" >
+                        <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <button *ngIf="!isEdit" type="submit" [disabled]="checkoutSucursalCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+            <button *ngIf="isEdit" type="button" (click)="updateSucursal(checkoutSucursalCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+            <button *ngIf="isEdit" type="button" (click)="deleteSucursal()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
+            <button  type="button" [routerLink]="['/admin/sucursales/sucursal']" class="btn btn-secondary mr-2">Cancelar</button>
+        </form>
+    </div>
+</div>

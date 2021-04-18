@@ -42,6 +42,9 @@
                     <h6 class="collapse-header">Administrar sucursales</h6>
                     <a class="collapse-item" [routerLink]= "['sucursales']" >Sucursales</a>
                     <a class="collapse-item" [routerLink]= "['sucursales/city']">Ciudades</a>
+                    <h6 class="collapse-header">Ajustes sucursales</h6>
+                    <a class="collapse-item" [routerLink]= "['sucursales/sucursal/create']" >Agregar Sucursal</a>
+                    <a class="collapse-item" [routerLink]= "['sucursales/city/create']">Agregar Ciudad</a>
                 </div>
             </div>
         </li>
@@ -60,9 +63,7 @@
                     <a class="collapse-item" [routerLink]= "['users']">Usuarios</a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Ajustes de usuarios</h6>
-                    <a class="collapse-item" href="usuarios-color.html">Agregar Usuario</a>
-                    <a class="collapse-item" href="usuarios-border.html">Editar usuario</a>
-                    <a class="collapse-item" href="usuarios-animation.html">Eliminar usuario</a>
+                    <a class="collapse-item" [routerLink]= "['users/create']">Agregar Usuario</a>
                 </div>
             </div>
         </li>

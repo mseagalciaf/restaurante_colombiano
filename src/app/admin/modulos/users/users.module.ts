@@ -4,11 +4,10 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import { UsersRoutingModule } from './users-routing.module';
 import { UserComponent } from './components/user/user.component';
 import { UserCreateComponent } from './components/user-create/user-create.component';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
-  declarations: [UserComponent, UserCreateComponent, UserEditComponent],
+  declarations: [UserComponent, UserCreateComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
