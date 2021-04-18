@@ -19,4 +19,24 @@ export class CityService {
     let customUrl = this.url+'cities';
     return this.http.get(customUrl,{headers: this.headers})
   }
+
+  getCity(id:number): Observable<any>{
+    let customUrl = this.url+'cities/'+id;
+    return this.http.get(customUrl,{headers: this.headers});
+  }
+
+  createCity(dataForm:CityInterface): Observable<any>{
+    let customUrl = this.url+'cities';
+    return this.http.post(customUrl,dataForm,{headers: this.headers})
+  }
+
+  updateCity(dataForm:CityInterface, id:number): Observable<any>{
+    let customUrl = this.url+'cities/'+id;
+    return this.http.put(customUrl,dataForm,{headers: this.headers});
+  }
+
+  deleteCity(id:number): Observable<any>{
+    let customUrl = this.url+'cities/'+id;
+    return this.http.delete(customUrl,{headers: this.headers});
+  }
 }

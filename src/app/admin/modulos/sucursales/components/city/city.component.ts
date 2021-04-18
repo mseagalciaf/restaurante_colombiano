@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CityInterface } from 'src/app/interfaces/city-interface';
 import { CityService } from 'src/app/services/city.service';
 
@@ -11,7 +12,10 @@ export class CityComponent implements OnInit {
 
   cities:CityInterface;
 
-  constructor(private cityService: CityService) {
+  constructor(
+    private cityService: CityService,
+    private router : Router
+    ) {
     this.getAll();
    }
 
@@ -22,6 +26,19 @@ export class CityComponent implements OnInit {
     this.cityService.getAllCities().subscribe(
       resp => {
         this.cities=resp.data
+      },
+      error => console.log(error)
+    )
+  }
+
+  editCity(id:number){
+    this.router.navigate(['admin/sucursales/city/edit/',id])
+  }
+
+  deleteCity(id:number){
+    this.cityService.deleteCity(id).subscribe(
+      resp => {
+        this.getAll()
       },
       error => console.log(error)
     )

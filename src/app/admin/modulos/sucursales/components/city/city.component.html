@@ -13,8 +13,11 @@
         <tr *ngFor="let city of cities">
           <th scope="row">{{city.id}}</th>
           <td>{{city.name}}</td>
-          <td><button class="btn btn-secondary">{{city.sucursale_name}}</button></td>
-          <td><button class="btn btn-warning"><i class="fa fa-edit"></i></button><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+          <td><button *ngIf="city.sucursale_name" class="btn btn-secondary mr-1">{{city.sucursale_name}}</button></td>
+          <td>
+            <button class="btn btn-warning mr-2" (click)="editCity(city.id)"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-danger" (click)="deleteCity(city.id)"><i class="fa fa-trash"></i></button>
+          </td>
         </tr>
       </tbody>
     </table>

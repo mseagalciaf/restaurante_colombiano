@@ -22,6 +22,9 @@ const routes: Routes = [
     path: 'city/create', component: CityCreateComponent
   },
   {
+    path: 'city/edit/:id', component: CityCreateComponent
+  },
+  {
     path: '', redirectTo: 'sucursal', pathMatch: 'full'
   }
 ];

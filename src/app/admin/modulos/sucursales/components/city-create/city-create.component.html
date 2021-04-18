@@ -1,1 +1,16 @@
-<p>city-create works!</p>
+<div class="container offset-1 text-secondary">
+    <div class="col-8">
+        <form [formGroup]="checkoutCityCreateForm" (ngSubmit)="createCity(checkoutCityCreateForm.value)" >
+            <div class="form-row">
+                <div class="form-group col-8">
+                    <label >Nombre Ciudad</label>
+                    <input type="text" class="form-control" id="inputName" formControlName="name" >
+                </div>
+            </div>
+            <button *ngIf="!isEdit" type="submit" [disabled]="checkoutCityCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+            <button *ngIf="isEdit" type="button" (click)="editCity(checkoutCityCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+            <button *ngIf="isEdit" type="button" (click)="deleteCity()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
+            <button  type="button" [routerLink]="['/admin/sucursales/city']" class="btn btn-secondary mr-2">Cancelar</button>
+        </form>
+    </div>
+</div>
