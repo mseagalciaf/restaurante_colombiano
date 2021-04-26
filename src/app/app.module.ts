@@ -11,6 +11,7 @@ import { SidebarComponent } from './templates/components/sidebar/sidebar.compone
 import { TopbarComponent } from './templates/components/topbar/topbar.component';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { TopNavbarMainComponent } from './templates/components/top-navbar-main/top-navbar-main.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     FooterComponent,
     TemplateAdminComponent,
     SidebarComponent,
-    TopbarComponent
+    TopbarComponent,
+    TopNavbarMainComponent
   ],
   imports: [
     BrowserModule,

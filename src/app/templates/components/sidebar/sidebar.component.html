@@ -77,10 +77,15 @@
             </a>
             <div id="collapseMisProductos" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">General</h6>
-                    <a class="collapse-item" href="login.html">Productos</a>
-                    <a class="collapse-item" href="register.html">Categorias</a>
-                    <a class="collapse-item" href="forgot-password.html">Grupos de modificadores</a>
+                    <h6 class="collapse-header">Gestion de Productos</h6>
+                    <a class="collapse-item" [routerLink]="['products/products']">Productos</a>
+                    <a class="collapse-item" [routerLink]="['products/product/create']">Crear Producto</a>
+                    <h6 class="collapse-header">Gestion de Categorias</h6>
+                    <a class="collapse-item" [routerLink]="['products/categories']">Categorias</a>
+                    <a class="collapse-item" [routerLink]="['products/category/create']">Crear Categoria</a>
+                    <h6 class="collapse-header">Gestion de Grupos</h6>
+                    <a class="collapse-item" [routerLink]="['products/groups']">Grupos</a>
+                    <a class="collapse-item" [routerLink]="['products/group/create']">Crear Grupo</a>
                 </div>
             </div>
         </li>

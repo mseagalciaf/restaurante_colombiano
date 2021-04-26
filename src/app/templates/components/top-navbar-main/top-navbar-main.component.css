@@ -1,0 +1,31 @@
+
+a{
+    font-size: large;
+    font-weight: bold;
+}
+.search{
+    display: flex;
+    justify-content: center;
+}
+input{
+    border-radius: 20px 0px 0px 20px;
+    margin-left: 300px;
+}
+button{
+    background-color: #FF7F1B;
+    border-radius: 0px 20px 20px 0px;
+}
+.search{
+    padding-right: 200px;
+}
+
+i{
+    color: white;
+}
+.fa-shopping-cart{
+    color: #FF7F1B;
+}
+
+.active {
+    color: #FF7F1B;
+}

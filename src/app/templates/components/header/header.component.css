@@ -1,8 +1,52 @@
-.navbar{
-    z-index: 1;
-    position: fixed;
-    width: 100%;
+.header-top-area{
+    background-color: #EEEEEE;
+    color: #656565;
 }
-#navbarNav{
+
+li{
+    list-style: none;
+}
+
+.dropdown a {
+    color: #656565;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.dropdown::after{
+    content: "|";
+}
+
+.log{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    
+}
+
+.sign-in::after{
+    margin: 10px;
+    content: "|";
+}
+
+.header-div-right{
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sign-in, .login{
+    color: #656565;
+}
+
+.sign-in:hover, .login:hover{
+    color: orange;
+    cursor: pointer;
 }
