@@ -21,7 +21,7 @@ export class TopbarComponent implements OnInit {
   onLogout(){
     this.authApi.logout().subscribe(
       data => {
-        this.router.navigate(['auth/login'])
+        this.router.navigate(['home'])
       },
       error => console.log(error)
     );
