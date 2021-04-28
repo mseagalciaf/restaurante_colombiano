@@ -1,0 +1,32 @@
+.container-categories{
+    align-items: center;
+    transition: 0.9s;
+}
+
+.image-category img{
+    height: 80px;
+    width: 120px;
+}
+
+.image-category{
+    display: flex;
+    justify-content: center;
+}
+img{
+    box-shadow: #7D7D7D 0px 0px 11px 2px;
+}
+.name-category{
+    position: relative;
+    background-color: orange;
+    color: white;
+    border-radius: 25px 25px;
+    text-align: center;
+    padding: 0px;
+    box-shadow: wheat 0px 2px 1px 2px;
+    
+}
+
+.container-categories:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}

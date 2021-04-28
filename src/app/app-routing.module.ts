@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BubbleCategoriesComponent } from './ecomerce/pages/store/components/bubble-categories/bubble-categories.component';
+import { ContainerStoreComponent } from './ecomerce/pages/store/components/container-store/container-store.component';
+import { ListProductsComponent } from './ecomerce/pages/store/components/list-products/list-products.component';
+import { SidebarCategoryComponent } from './ecomerce/pages/store/components/sidebar-category/sidebar-category.component';
 import { TemplateAdminComponent } from './templates/template-admin/template-admin.component';
 import { TemplatePrincipalComponent } from './templates/template-principal/template-principal.component';
 
@@ -10,6 +14,17 @@ const routes: Routes = [
       {
         path:'home', 
         loadChildren: () => import('./ecomerce/pages/home/home.module').then(mod => mod.HomeModule)
+      },
+      {
+        path: 'store', component: ContainerStoreComponent, children:[
+          {
+            path: '', component: BubbleCategoriesComponent
+          },
+          {
+            path: 'products',
+            loadChildren: () => import('./ecomerce/pages/store/store.module').then(mod => mod.StoreModule)
+          }
+        ]
       },
       {
         path:'', redirectTo: '/home', pathMatch:'full'
