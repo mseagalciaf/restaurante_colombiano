@@ -1,1 +1,35 @@
-<p>list-products works!</p>
+<div class="row general-product-container">
+    <div class="col-2">
+        <div class="list-categories">
+            <app-sidebar-category></app-sidebar-category>
+        </div>
+    </div>
+    <div class="col-10">
+        <div class="list-products row">
+
+            <div class="col-5 card" *ngFor="let product of products">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src="../../../../../../assets/img/carousel-home/comida1.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h6 class="card-title">{{product.name}}</h6>
+                        </div>
+                        <div class="card-badge">
+                            <span class="badge badge-success">{{product.category_name}}</span>
+                        </div>
+                        <div class="card-description">
+                            <p  class="card-text">Un deliciosos arroz con pollo, verduras frescas y un toque de picante al gusto.</p>
+                        </div>
+                        <div class="card-button">
+                            <span class="price">{{product.price | currency}}</span>
+                            <a href="#" class="btn btn-agregar">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

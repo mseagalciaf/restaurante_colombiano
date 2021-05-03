@@ -1,0 +1,109 @@
+.general-product-container{
+    width: 100%;
+    padding-bottom: 25px;
+}
+
+.list-categories{
+    background-color: white;
+    border-radius: 5px 5px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.list-products{
+    background-color: white;
+    border-radius: 5px 5px;
+    margin: 0%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-agregar{
+    background-color: #FF7F1B;
+    color: white;
+}
+
+.card{
+
+    width: 600px;
+    height: 150px;
+    background-color: #fff;
+    padding: 0px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 15px ;
+    display: flex;
+    flex-direction: row;
+    transition: 0.9s;
+    overflow: hidden;
+}
+
+.card-title , .card-description, .card-badge {
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+
+.card-title{
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-description {
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-button{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.price{
+    color: #FF7F1B;
+    font-weight: bold;
+}
+
+.card-content{
+    padding: 0%;
+    display: flex;
+}
+
+.card .card-img{
+    width: 30%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.card .card-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-body{
+    padding: 2%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.card-item{
+    width: auto;
+    height: 100%;
+}
+
+.card:hover{
+    box-shadow: 0 20px 60px gray;
+    transform: scale(0.9);
+    cursor: pointer;
+}

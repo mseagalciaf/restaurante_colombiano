@@ -1,0 +1,25 @@
+h3{
+    font-family: cursive;
+    color: #FF7F1B;
+}
+ul{
+    list-style: none;
+}
+
+li{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+a{
+    text-decoration-line: none;
+    transition: 0.9s;
+    color: gray;
+}
+
+a:hover{
+    margin-left: 10px;
+    color: #FF7F1B;
+    
+}
+
