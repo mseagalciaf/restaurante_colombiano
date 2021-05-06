@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent implements OnInit {
 
+  isLoading:boolean=true;
   products : ProductInterface;
   constructor(
     private router : Router,
@@ -24,6 +25,7 @@ export class ProductsComponent implements OnInit {
   getAll(){
     this.productService.getAllProducts().subscribe(
       resp => {
+        this.isLoading=false;
         this.products=resp.data;       
       },
       error => console.log(error)      

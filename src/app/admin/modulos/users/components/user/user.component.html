@@ -3,10 +3,15 @@
     <button class="btn" [routerLink]="['/admin/users/create']">
         <div class="card " style="width: 18rem; border-bottom: 0%; padding-bottom: -50px;">
             <div class="card-body">
-                <div class="col-12 text-center">
+                <div *ngIf="isLoading" class="col-12 text-center">
+                    <div class="spinner-grow text-info m-2" role="status"></div>
+                    <div class="spinner-grow text-info m-2" role="status"></div>
+                    <div class="spinner-grow text-info m-2" role="status"></div>
+                </div>
+                <div *ngIf="!isLoading" class="col-12 text-center">
                     <img class="card-plus" src="../../../../../../assets/img/admin/plus.png" style="width: 100px; height: 100px;" alt="">
                 </div>
-                <div class="col-12">
+                <div *ngIf="!isLoading" class="col-12">
                     <h4 class="text-secondary">Crear usuario</h4>
                 </div>
             </div>

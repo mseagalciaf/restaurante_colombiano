@@ -12,6 +12,7 @@ import { CityService } from 'src/app/services/city.service';
 export class CityCreateComponent implements OnInit {
 
   //-------user to edit-------------
+  isLoading:boolean=true;
   isEdit:boolean=false;
   city_id:number;
   city:CityInterface;
@@ -48,6 +49,7 @@ export class CityCreateComponent implements OnInit {
   getCity(id:number){
     this.cityService.getCity(id).subscribe(
       resp => {
+        this.isLoading=false;
         this.checkoutCityCreateForm.controls['name'].setValue(resp.data.name);
       },
       error => console.log(error)

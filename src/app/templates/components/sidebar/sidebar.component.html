@@ -3,7 +3,6 @@
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['admin']">
             <div class="sidebar-brand-icon rotate-n-15">
@@ -14,7 +13,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
+        
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <a class="nav-link" [routerLink]="['admin']">
@@ -32,76 +31,71 @@
 
         <!-- Nav Item - Sucursales Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursales"
-                aria-expanded="true" aria-controls="collapseSucursales">
-                <i class="fa fa-building"></i>
-                <span>Sucursales</span>
-            </a>
-            <div id="collapseSucursales" class="collapse" aria-labelledby="headingSucursales" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Administrar sucursales</h6>
-                    <a class="collapse-item" [routerLink]= "['sucursales/sucursal']" >Sucursales</a>
-                    <a class="collapse-item" [routerLink]= "['sucursales/city']">Ciudades</a>
-                    <h6 class="collapse-header">Ajustes sucursales</h6>
-                    <a class="collapse-item" [routerLink]= "['sucursales/sucursal/create']" >Agregar Sucursal</a>
-                    <a class="collapse-item" [routerLink]= "['sucursales/city/create']">Agregar Ciudad</a>
-                </div>
+            <div ngbDropdown class="dropdown">
+                <a class="nav-link collapsed" ngbDropdownToggle>
+                    <i class="fa fa-building"></i>
+                    <span>Sucursales</span>
+                    <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
+                        <h6 class="collapse-header">Administrar sucursales</h6>
+                        <a ngbDropdownItem  [routerLink]= "['sucursales/sucursal']" >Sucursales</a>
+                        <a ngbDropdownItem  [routerLink]= "['sucursales/city']">Ciudades</a>
+                        <h6 class="collapse-header">Ajustes sucursales</h6>
+                        <a ngbDropdownItem  [routerLink]= "['sucursales/sucursal/create']" >Agregar Sucursal</a>
+                        <a ngbDropdownItem  [routerLink]= "['sucursales/city/create']">Agregar Ciudad</a>
+                    </div>
+                </a>
             </div>
         </li>
 
         <!-- Nav Item - Usuarios Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
-                aria-expanded="true" aria-controls="collapseUsuarios">
-                <i class="fa fa-users"></i>
-                <span>Usuarios</span>
-            </a>
-            <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">General</h6>
-                    <a class="collapse-item" [routerLink]= "['users']">Usuarios</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Ajustes de usuarios</h6>
-                    <a class="collapse-item" [routerLink]= "['users/create']">Agregar Usuario</a>
-                </div>
+            <div ngbDropdown class="dropdown">
+                <a class="nav-link collapsed" ngbDropdownToggle>
+                    <i class="fa fa-users"></i>
+                    <span>Usuarios</span>
+                    <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
+                        <h6 class="collapse-header">General</h6>
+                        <a ngbDropdownItem [routerLink]= "['users']">Usuarios</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </a>
             </div>
         </li>
 
         <!-- Nav Item - Productos Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMisProductos"
-                aria-expanded="true" aria-controls="collapsePages">
-                <i class="fa fa-apple"></i>
-                <span>Productos</span>
-            </a>
-            <div id="collapseMisProductos" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Gestion de Productos</h6>
-                    <a class="collapse-item" [routerLink]="['products/products']">Productos</a>
-                    <a class="collapse-item" [routerLink]="['products/product/create']">Crear Producto</a>
-                    <h6 class="collapse-header">Gestion de Categorias</h6>
-                    <a class="collapse-item" [routerLink]="['products/categories']">Categorias</a>
-                    <a class="collapse-item" [routerLink]="['products/category/create']">Crear Categoria</a>
-                    <h6 class="collapse-header">Gestion de Grupos</h6>
-                    <a class="collapse-item" [routerLink]="['products/groups']">Grupos</a>
-                    <a class="collapse-item" [routerLink]="['products/group/create']">Crear Grupo</a>
-                </div>
+
+            <div ngbDropdown class="dropdown">
+                <a class="nav-link collapsed" ngbDropdownToggle>
+                    <i class="fa fa-apple"></i>
+                    <span>Productos</span>
+                    <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
+                        <h6 class="collapse-header">Gestion de Productos</h6>
+                        <a ngbDropdownItem [routerLink]="['products/products']">Productos</a>
+                        <a ngbDropdownItem [routerLink]="['products/product/create']">Crear Producto</a>
+                        <h6 class="collapse-header">Gestion de Categorias</h6>
+                        <a ngbDropdownItem [routerLink]="['products/categories']">Categorias</a>
+                        <a ngbDropdownItem [routerLink]="['products/category/create']">Crear Categoria</a>
+                        <h6 class="collapse-header">Gestion de Grupos</h6>
+                        <a ngbDropdownItem [routerLink]="['products/groups']">Grupos</a>
+                        <a ngbDropdownItem [routerLink]="['products/group/create']">Crear Grupo</a>
+                    </div>
+                </a>
             </div>
         </li>
 
         <!-- Nav Item - MisProductos Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                aria-expanded="true" aria-controls="collapsePages">
-                <i class="fa fa-apple"></i>
-                <span>Mis Productos</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">General</h6>
-                    <a class="collapse-item" href="login.html">Productos</a>
-                </div>
+            <div ngbDropdown class="dropdown">
+                <a class="nav-link collapsed" ngbDropdownToggle>
+                    <i class="fa fa-apple"></i>
+                    <span>Mis Productos</span>
+                    <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
+                        <h6 class="collapse-header">General</h6>
+                        <a ngbDropdownItem>Productos</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </a>
             </div>
         </li>
 

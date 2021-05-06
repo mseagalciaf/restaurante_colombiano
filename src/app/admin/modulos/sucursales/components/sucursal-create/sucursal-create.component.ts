@@ -13,6 +13,7 @@ import { SucursalService } from 'src/app/services/sucursal.service';
 export class SucursalCreateComponent implements OnInit {
 
   //-------user to edit-------------
+  isLoading:boolean=true;
   isEdit:boolean=false;
   sucursal_id:number;
   sucursal:SucursalInterface;
@@ -89,6 +90,7 @@ export class SucursalCreateComponent implements OnInit {
   getCities(){
     this.sucursalService.getAllCities().subscribe(
       resp => {
+        this.isLoading=false;
         this.cities=resp.data
       },
       error => console.log(error)

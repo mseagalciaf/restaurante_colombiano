@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
 
+  isLoading:boolean=true;
   users:UserInterface;
   
   constructor(private userService:UserService) { 
@@ -21,7 +22,7 @@ export class UserComponent implements OnInit {
   getAll(){
     this.userService.getAllUsers().subscribe(
       resp => {
-        console.log(resp.data);
+        this.isLoading=false;
         this.users=resp.data;
         
       },

@@ -17,11 +17,30 @@ export class CategoryService {
     private http : HttpClient
   ) { }
 
+  createCategory(dataForm:CategoryInterface) : Observable<any>{
+    let url = this.url+'categories';
+    return this.http.post(url,dataForm,{headers:this.headers});
+  }
+
   getAllCategories(): Observable<any>{
     let url = this.url+'categories';
     return this.http.get(url,{headers: this.headers})
   }
 
+  getCategory(id:number): Observable<any>{
+    let url = this.url+'categories/'+id;
+    return this.http.get<CategoryInterface>(url,{headers : this.headers});
+  }
+
+  updateCategory(dataForm:CategoryInterface, id : number) : Observable<any>{
+    let url = this.url+'categories/'+id;
+    return this.http.put(url,dataForm,{headers: this.headers});
+  }
+
+  deleteCategory(id:number): Observable<any>{
+    let url = this.url+'categories/'+id;
+    return this.http.delete(url,{headers:this.headers});
+  }
 
 
 }

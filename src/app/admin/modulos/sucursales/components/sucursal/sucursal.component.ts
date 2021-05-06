@@ -10,6 +10,7 @@ import { SucursalService } from 'src/app/services/sucursal.service';
 })
 export class SucursalComponent implements OnInit {
 
+  isLoading:boolean=true;
   sucursales:SucursalInterface;
 
   constructor(
@@ -25,6 +26,7 @@ export class SucursalComponent implements OnInit {
   getAll(){
     this.sucursalService.getAllSucursales().subscribe(
       resp => {
+        this.isLoading=false;
         this.sucursales=resp.data;        
       },
       error => console.log(error)      

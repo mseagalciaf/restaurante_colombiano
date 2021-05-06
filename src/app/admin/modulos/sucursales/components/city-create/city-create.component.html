@@ -2,6 +2,13 @@
     <div class="col-8">
         <form [formGroup]="checkoutCityCreateForm" (ngSubmit)="createCity(checkoutCityCreateForm.value)" >
             <div class="form-row">
+                <div class="form-group col-12">
+                    <div *ngIf="isLoading" class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden"></span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!isLoading" class="form-row">
                 <div class="form-group col-8">
                     <label >Nombre Ciudad</label>
                     <input type="text" class="form-control" id="inputName" formControlName="name" >

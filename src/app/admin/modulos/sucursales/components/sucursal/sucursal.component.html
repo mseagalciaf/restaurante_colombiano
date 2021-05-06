@@ -10,6 +10,13 @@
         </tr>
       </thead>
       <tbody>
+        <tr *ngIf="isLoading">
+          <td colspan="3" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden"></span>
+              </div>
+          </td>
+        </tr>
         <tr *ngFor="let sucursal of sucursales">
           <th scope="row">{{sucursal.id}}</th>
           <td>{{sucursal.name}}</td>

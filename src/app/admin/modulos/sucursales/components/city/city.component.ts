@@ -10,13 +10,15 @@ import { CityService } from 'src/app/services/city.service';
 })
 export class CityComponent implements OnInit {
 
+  isLoading:boolean=true;
   cities:CityInterface;
+
 
   constructor(
     private cityService: CityService,
     private router : Router
     ) {
-    this.getAll();
+      this.getAll();
    }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class CityComponent implements OnInit {
   getAll(){
     this.cityService.getAllCities().subscribe(
       resp => {
+        this.isLoading=false;
         this.cities=resp.data
       },
       error => console.log(error)

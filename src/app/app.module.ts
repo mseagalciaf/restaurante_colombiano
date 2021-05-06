@@ -12,6 +12,7 @@ import { TopbarComponent } from './templates/components/topbar/topbar.component'
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { TopNavbarMainComponent } from './templates/components/top-navbar-main/top-navbar-main.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -26,11 +27,13 @@ import { TopNavbarMainComponent } from './templates/components/top-navbar-main/t
     TopNavbarMainComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, 
     FormsModule
+    
   ],
   providers: [
     {
