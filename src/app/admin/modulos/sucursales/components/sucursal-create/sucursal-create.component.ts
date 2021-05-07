@@ -13,7 +13,8 @@ import { SucursalService } from 'src/app/services/sucursal.service';
 export class SucursalCreateComponent implements OnInit {
 
   //-------user to edit-------------
-  isLoading:boolean=true;
+  isGetting:boolean=true;
+  isLoading:boolean=false
   isEdit:boolean=false;
   sucursal_id:number;
   sucursal:SucursalInterface;
@@ -45,9 +46,10 @@ export class SucursalCreateComponent implements OnInit {
 
   createSucursal(dataForm:SucursalInterface){
     if (this.checkoutSucursalCreateForm.valid) {
+      this.isLoading=true;
       this.sucursalService.createSucursal(dataForm).subscribe(
         resp => {
-          console.log(resp);
+          this.isLoading=false;
           this.router.navigate(['admin/sucursales/sucursal']);
         },
         error => console.log(error)
@@ -68,8 +70,10 @@ export class SucursalCreateComponent implements OnInit {
 
   updateSucursal(dataForm: SucursalInterface, id:number=this.sucursal_id){
     if (this.checkoutSucursalCreateForm.valid) {
+      this.isLoading=true;
       this.sucursalService.updateSucursal(dataForm,id).subscribe(
         resp => {
+          this.isLoading=false;
           this.router.navigate(['admin/sucursales/sucursal'])
         },
         error => console.log(error)
@@ -79,8 +83,10 @@ export class SucursalCreateComponent implements OnInit {
   }
 
   deleteSucursal(id:number = this.sucursal_id){
+    this.isLoading=true;
     this.sucursalService.deleteSucursal(id).subscribe(
       resp => {
+        this.isLoading=false;
         this.router.navigate(['admin/sucursales/sucursal'])
       },
       error => console.log(error)
@@ -90,7 +96,7 @@ export class SucursalCreateComponent implements OnInit {
   getCities(){
     this.sucursalService.getAllCities().subscribe(
       resp => {
-        this.isLoading=false;
+        this.isGetting=false;
         this.cities=resp.data
       },
       error => console.log(error)

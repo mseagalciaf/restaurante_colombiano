@@ -36,12 +36,10 @@
                     <i class="fa fa-building"></i>
                     <span>Sucursales</span>
                     <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
-                        <h6 class="collapse-header">Administrar sucursales</h6>
+                        <h6 class="collapse-header">Gestion de sucursales</h6>
                         <a ngbDropdownItem  [routerLink]= "['sucursales/sucursal']" >Sucursales</a>
+                        <h6 class="collapse-header">Gestion de Ciudades</h6>
                         <a ngbDropdownItem  [routerLink]= "['sucursales/city']">Ciudades</a>
-                        <h6 class="collapse-header">Ajustes sucursales</h6>
-                        <a ngbDropdownItem  [routerLink]= "['sucursales/sucursal/create']" >Agregar Sucursal</a>
-                        <a ngbDropdownItem  [routerLink]= "['sucursales/city/create']">Agregar Ciudad</a>
                     </div>
                 </a>
             </div>
@@ -54,7 +52,7 @@
                     <i class="fa fa-users"></i>
                     <span>Usuarios</span>
                     <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
-                        <h6 class="collapse-header">General</h6>
+                        <h6 class="collapse-header">Gestion de Usuarios</h6>
                         <a ngbDropdownItem [routerLink]= "['users']">Usuarios</a>
                         <div class="collapse-divider"></div>
                     </div>
@@ -72,13 +70,12 @@
                     <div ngbDropdownMenu class="dropdown-menu p-3 ml-2">
                         <h6 class="collapse-header">Gestion de Productos</h6>
                         <a ngbDropdownItem [routerLink]="['products/products']">Productos</a>
-                        <a ngbDropdownItem [routerLink]="['products/product/create']">Crear Producto</a>
                         <h6 class="collapse-header">Gestion de Categorias</h6>
                         <a ngbDropdownItem [routerLink]="['products/categories']">Categorias</a>
-                        <a ngbDropdownItem [routerLink]="['products/category/create']">Crear Categoria</a>
                         <h6 class="collapse-header">Gestion de Grupos</h6>
                         <a ngbDropdownItem [routerLink]="['products/groups']">Grupos</a>
-                        <a ngbDropdownItem [routerLink]="['products/group/create']">Crear Grupo</a>
+                        <h6 class="collapse-header">Gestion de Modificadores</h6>
+                        <a ngbDropdownItem [routerLink]="['products/modifiers']">Modificadores</a>
                     </div>
                 </a>
             </div>

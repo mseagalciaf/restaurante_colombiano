@@ -11,12 +11,14 @@ import { AddCategoryModalComponent } from '../add-category-modal/add-category-mo
 })
 export class CategoriesComponent implements OnInit {
 
+  isLoading:boolean;
   categories: CategoryInterface[];
 
   constructor(
     private categoryService : CategoryService,
     private ngbModal : NgbModal
   ) { 
+    this.isLoading=true;
     this.getAllCategories();
   }
 
@@ -26,6 +28,7 @@ export class CategoriesComponent implements OnInit {
   getAllCategories(){
     this.categoryService.getAllCategories().subscribe(
       resp => {
+        this.isLoading=false;
         this.categories = resp.data;
       },
       error => console.log(error)

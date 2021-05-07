@@ -1,1 +1,46 @@
-<p>modifiers works!</p>
+<div class="container ml-2">
+    <div class="col-12">
+      <section class="d-flex">
+        <button class="btn btn-success ml-auto mb-2" (click)="addModifier()">
+          Agregar
+        </button>
+      </section>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="isLoading">
+              <td colspan="3" class="text-center">
+                  <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden"></span>
+                  </div>
+              </td>
+          </tr>
+          <tr *ngFor="let modifier of modifiers; let i = index">
+            <th scope="row">{{ modifier.id }}</th>
+            <td>{{ modifier.name }}</td>
+            <td>
+              <button
+                class="btn btn btn-warning mr-2"
+                (click)="editModifier(modifier.id)"
+              >
+                <i class="fa fa-edit"></i>
+              </button>
+              <button
+                class="btn btn-danger"
+                (click)="deleteModifier(modifier.id)"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

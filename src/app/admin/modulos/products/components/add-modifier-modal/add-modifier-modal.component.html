@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 *ngIf="!isEdit" class="modal-title">Agregar Modificador</h4>
+    <h4 *ngIf="isEdit" class="modal-title">Editar Modificador</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container offset-1">
+        <div class="col-8">
+            <div *ngIf="isGetting" class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+            <form *ngIf="!isGetting" [formGroup]="checkoutModifierCreateForm" (ngSubmit)="createModifier(checkoutModifierCreateForm.value)" >
+                <div class="form-row">
+                    <div class="form-group col-8">
+                        <label >Nombre del modificador</label>
+                        <input type="text" class="form-control" id="inputName" formControlName="name" >
+                    </div>
+                </div>
+                <div *ngIf="isLoading" class="spinner-grow text-primary spinner-grow-sm" role="status"></div>
+                <button *ngIf="!isEdit && !isLoading" type="submit" [disabled]="checkoutModifierCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+                <button *ngIf="isEdit && !isLoading" type="button" (click)="editModifier(checkoutModifierCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancelar</button>
+</div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { ProductService } from 'src/app/services/product.service';
-import { AddProductModalComponent } from '../add-product-modal/add-product-modal.component';
+import { AddProductCartModalComponent } from '../add-product-cart-modal/add-product-cart-modal.component';
 
 @Component({
   selector: 'app-list-products',
@@ -32,7 +32,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   addProduct(id:number){
-    const refModal = this.ngbModal.open(AddProductModalComponent, {centered: true, size: "lg"});
+    const refModal = this.ngbModal.open(AddProductCartModalComponent, {centered: true, size: "lg"});
     refModal.componentInstance.id = id;
   }
 

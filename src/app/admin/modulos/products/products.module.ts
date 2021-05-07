@@ -10,10 +10,12 @@ import { GroupsComponent } from './components/groups/groups.component';
 import { ModifiersComponent } from './components/modifiers/modifiers.component';
 import { ModifierCreateComponent } from './components/modifier-create/modifier-create.component';
 import { AddCategoryModalComponent } from './components/add-category-modal/add-category-modal.component';
+import { AddGroupModalComponent } from './components/add-group-modal/add-group-modal.component';
+import { AddModifierModalComponent } from './components/add-modifier-modal/add-modifier-modal.component';
 
 
 @NgModule({
-  declarations: [ProductCreateComponent, GroupCreateComponent, ProductsComponent, CategoriesComponent, GroupsComponent, ModifiersComponent, ModifierCreateComponent, AddCategoryModalComponent],
+  declarations: [ProductCreateComponent, GroupCreateComponent, ProductsComponent, CategoriesComponent, GroupsComponent, ModifiersComponent, ModifierCreateComponent, AddCategoryModalComponent, AddGroupModalComponent, AddModifierModalComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,

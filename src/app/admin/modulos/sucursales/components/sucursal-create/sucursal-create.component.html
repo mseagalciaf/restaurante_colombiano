@@ -1,13 +1,13 @@
 <div class="container offset-1 text-secondary">
     <div class="col-8">
-        <form [formGroup]="checkoutSucursalCreateForm" (ngSubmit)="createSucursal(checkoutSucursalCreateForm.value)" >
-            <div class="form-row">
-                <div class="form-group col-12">
-                    <div *ngIf="isLoading" class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden"></span>
-                    </div>
+        <div *ngIf="isGetting" class="form-row">
+            <div class="form-group col-12">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden"></span>
                 </div>
             </div>
+        </div>
+        <form *ngIf="!isGetting" [formGroup]="checkoutSucursalCreateForm" (ngSubmit)="createSucursal(checkoutSucursalCreateForm.value)" >
             <div class="form-row">
                 <div class="form-group col-8">
                     <label >Nombre Sucursal</label>
@@ -20,10 +20,13 @@
                     </select>
                 </div>
             </div>
-            <button *ngIf="!isEdit" type="submit" [disabled]="checkoutSucursalCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
-            <button *ngIf="isEdit" type="button" (click)="updateSucursal(checkoutSucursalCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
-            <button *ngIf="isEdit" type="button" (click)="deleteSucursal()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
-            <button  type="button" [routerLink]="['/admin/sucursales/sucursal']" class="btn btn-secondary mr-2">Cancelar</button>
+            <button *ngIf="isLoading"class="btn btn-primary mr-2">
+                <div class="spinner-border text-light" role="status"></div>
+            </button>
+            <button *ngIf="!isEdit && !isLoading" type="submit" [disabled]="checkoutSucursalCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+            <button *ngIf="isEdit && !isLoading" type="button" (click)="updateSucursal(checkoutSucursalCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+            <button *ngIf="isEdit && !isLoading" type="button" (click)="deleteSucursal()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
+            <button *ngIf="!isLoading" type="button" [routerLink]="['/admin/sucursales/sucursal']" class="btn btn-secondary mr-2">Cancelar</button>
         </form>
     </div>
 </div>

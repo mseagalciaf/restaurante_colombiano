@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 *ngIf="!isEdit" class="modal-title">Agregar Grupo</h4>
+    <h4 *ngIf="isEdit" class="modal-title">Editar Grupo</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container offset-1">
+        <div class="col-8">
+            <div *ngIf="isGetting" class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+            <form *ngIf="!isGetting" [formGroup]="checkoutGroupCreateForm" (ngSubmit)="createGroup(checkoutGroupCreateForm.value)" >
+                <div class="form-row">
+                    <div class="form-group col-8">
+                        <label >Nombre Grupo</label>
+                        <input type="text" class="form-control" id="inputName" formControlName="name" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Modificadores</label>
+                        <span *ngIf="!modifiers" class="text-secondary" >Ups.. aún no hay modificadores</span>
+                        <select *ngIf="modifiers" id="inputGroup" class="form-control select" multiple formControlName="modifiers">
+                            <option *ngFor="let modifier of modifiers" [value]="modifier.id">{{modifier.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div *ngIf="isLoading" class="spinner-grow text-primary spinner-grow-sm" role="status"></div>
+                <button *ngIf="!isEdit && !isLoading" type="submit" [disabled]="checkoutGroupCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+                <button *ngIf="isEdit && !isLoading" type="button" (click)="editGroup(checkoutGroupCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancelar</button>
+</div>

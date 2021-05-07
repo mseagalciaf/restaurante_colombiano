@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-
+  isLoading:boolean = false;
   isEdit:boolean;
   product_id:number;
   categories: Array<CategoryInterface>;
@@ -37,6 +37,7 @@ export class ProductCreateComponent implements OnInit {
     this.getGroups();
     if (this.product_id=this.route.snapshot.params.id) {
       this.isEdit=true;
+      this.isLoading=true;
       this.getProduct(this.product_id);
     }
   }
@@ -47,6 +48,7 @@ export class ProductCreateComponent implements OnInit {
   getProduct(id:number){
     this.productService.getProduct(id).subscribe(
       resp => {
+        this.isLoading=false;
         this.checkoutProductCreateForm.controls['name'].setValue(resp.data.name);
         this.checkoutProductCreateForm.controls['price'].setValue(resp.data.price);
         this.checkoutProductCreateForm.controls['category_id'].setValue(resp.data.category_id);

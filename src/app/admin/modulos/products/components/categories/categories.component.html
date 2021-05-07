@@ -1,27 +1,45 @@
 <div class="container ml-2">
-    <div class="col-12">
-        <section class="d-flex">
-            <button class="btn btn-success ml-auto mb-2" (click)="addCategory()">Agregar</button>
-        </section>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let category of categories; let i = index">
-            <th scope="row">{{category.id}}</th>
-            <td>{{category.name}}</td>
-            <td>
-              <button class="btn btn btn-warning mr-2" (click)="editCategory(category.id)" ><i class="fa fa-edit"></i></button>
-              <button class="btn btn-danger" (click)="deleteCategory(category.id)"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    
-    </div>
+  <div class="col-12">
+    <section class="d-flex">
+      <button class="btn btn-success ml-auto mb-2" (click)="addCategory()">
+        Agregar
+      </button>
+    </section>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="isLoading">
+          <td colspan="2" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden"></span>
+              </div>
+          </td>
+        </tr>
+        <tr *ngFor="let category of categories; let i = index">
+          <th scope="row">{{ category.id }}</th>
+          <td>{{ category.name }}</td>
+          <td>
+            <button
+              class="btn btn btn-warning mr-2"
+              (click)="editCategory(category.id)"
+            >
+              <i class="fa fa-edit"></i>
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="deleteCategory(category.id)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

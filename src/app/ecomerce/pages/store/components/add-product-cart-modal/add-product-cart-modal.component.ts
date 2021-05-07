@@ -4,14 +4,15 @@ import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-add-product-modal',
-  templateUrl: './add-product-modal.component.html',
-  styleUrls: ['./add-product-modal.component.css']
+  selector: 'app-add-product-cart-modal',
+  templateUrl: './add-product-cart-modal.component.html',
+  styleUrls: ['./add-product-cart-modal.component.css']
 })
-export class AddProductModalComponent implements OnInit {
+export class AddProductCartModalComponent implements OnInit {
 
   @Input() id:number;
   product: ProductInterface;
+  amount:number=1;
 
   constructor(
     public activeModal : NgbActiveModal,
@@ -34,4 +35,14 @@ export class AddProductModalComponent implements OnInit {
     )
   }
 
+  addToCart(){
+  }
+
+  addAmount(){
+    this.amount++;
+  }
+
+  reduceAmount(){
+    this.amount--;
+  }
 }

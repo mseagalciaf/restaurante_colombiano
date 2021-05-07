@@ -12,7 +12,8 @@ import { CityService } from 'src/app/services/city.service';
 export class CityCreateComponent implements OnInit {
 
   //-------user to edit-------------
-  isLoading:boolean=true;
+  isGetting:boolean=false;
+  isLoading:boolean=false;
   isEdit:boolean=false;
   city_id:number;
   city:CityInterface;
@@ -27,6 +28,7 @@ export class CityCreateComponent implements OnInit {
     private cityService : CityService
   ) { 
     if (this.city_id= this.route.snapshot.params.id) {
+      this.isGetting=true;
       this.getCity(this.city_id);
       this.isEdit=true;
     }
@@ -37,8 +39,10 @@ export class CityCreateComponent implements OnInit {
 
   createCity(dataForm:CityInterface){
     if (this.checkoutCityCreateForm.valid) {
+      this.isLoading=true;
       this.cityService.createCity(dataForm).subscribe(
         resp => {
+          this.isLoading=false;
           this.router.navigate(['admin/sucursales/city']);
         },
         error => console.log(error)        
@@ -49,7 +53,7 @@ export class CityCreateComponent implements OnInit {
   getCity(id:number){
     this.cityService.getCity(id).subscribe(
       resp => {
-        this.isLoading=false;
+        this.isGetting=false;
         this.checkoutCityCreateForm.controls['name'].setValue(resp.data.name);
       },
       error => console.log(error)
@@ -58,8 +62,10 @@ export class CityCreateComponent implements OnInit {
 
   editCity(dataForm:CityInterface,id:number=this.city_id){
     if (this.checkoutCityCreateForm.valid) {
+      this.isLoading=true;
       this.cityService.updateCity(dataForm,id).subscribe(
         resp => {
+          this.isLoading=false;
           this.router.navigate(['admin/sucursales/city']);
         },
         error => console.log(error)
@@ -68,8 +74,10 @@ export class CityCreateComponent implements OnInit {
   }
 
   deleteCity(id:number=this.city_id){
+    this.isLoading=true,
     this.cityService.deleteCity(id).subscribe(
       resp => {
+        this.isLoading=false;
         this.router.navigate(['admin/sucursales/city']);
       },
       error => console.log(error)
