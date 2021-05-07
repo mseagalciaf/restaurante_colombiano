@@ -28,7 +28,7 @@
 <div class="modal-footer">
     <div class="container">
         <div class="counter-product">
-            <button class="btn btn-outline" (click)="reduceAmount()">-</button>
+            <button *ngIf="amount > 1" class="btn btn-outline" (click)="reduceAmount()">-</button>
             <div class="total-counter">{{amount}}</div>
             <button class="btn btn-outline" (click)="addAmount()">+</button>
             <button type="button" class="btn add-to-cart" (click)="addToCart()">Agregar</button>
