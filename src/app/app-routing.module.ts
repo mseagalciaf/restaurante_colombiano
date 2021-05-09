@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BubbleCategoriesComponent } from './ecomerce/pages/store/components/bubble-categories/bubble-categories.component';
+import { CartModalComponent } from './ecomerce/pages/store/components/cart-modal/cart-modal.component';
 import { ContainerStoreComponent } from './ecomerce/pages/store/components/container-store/container-store.component';
 import { ListProductsComponent } from './ecomerce/pages/store/components/list-products/list-products.component';
 import { SidebarCategoryComponent } from './ecomerce/pages/store/components/sidebar-category/sidebar-category.component';

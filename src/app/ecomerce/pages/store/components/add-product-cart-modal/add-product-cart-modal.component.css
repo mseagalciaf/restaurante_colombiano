@@ -1,7 +1,12 @@
 .add-to-cart{
     background-color: #FF7F1B;
     color: white;
-    margin-left: 40%;
+    width: fit-content;
+    flex-grow: 10;
+}
+
+.price{
+    margin-left: 5%;
 }
 
 .img-product-modal{
@@ -52,14 +57,14 @@ ul{
 .modal-footer .container{
     display: flex;
     justify-content: flex-end;
+    width: 10%;
 }
 
 .counter-product{
     display: flex;
     justify-content: flex-end;
-    width: 40px;
+    width: 100%;
     height: auto;
-    display: flex;
 }
 
 .counter-product .btn-outline{
@@ -71,8 +76,18 @@ ul{
     color: white;
 }
 .total-counter{
+    width: 40px;
     display: flex;
     text-align: center;
     align-items: center;
     margin: 0% 40% 0% 40%; 
+    border: none;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

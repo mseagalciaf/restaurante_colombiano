@@ -23,7 +23,7 @@
                             <p  class="card-text">Un deliciosos arroz con pollo, verduras frescas y un toque de picante al gusto.</p>
                         </div>
                         <div class="card-button">
-                            <span class="price">{{product.price | currency}}</span>
+                            <span class="price">{{product.price | currency:'':'symbol':'4.0-1'}}</span>
                             <a (click) = "addProduct(product.id)" class="btn btn-agregar">Agregar</a>
                         </div>
                     </div>

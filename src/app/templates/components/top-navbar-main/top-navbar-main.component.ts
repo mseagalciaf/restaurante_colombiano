@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CartModalComponent } from 'src/app/ecomerce/pages/store/components/cart-modal/cart-modal.component';
 
 @Component({
   selector: 'app-top-navbar-main',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavbarMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private ngbModal : NgbModal
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openCart(){
+    this.ngbModal.open(CartModalComponent);
   }
 
 }
