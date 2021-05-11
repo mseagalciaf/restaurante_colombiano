@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartModalComponent } from 'src/app/ecomerce/pages/store/components/cart-modal/cart-modal.component';
 
@@ -10,14 +11,14 @@ import { CartModalComponent } from 'src/app/ecomerce/pages/store/components/cart
 export class TopNavbarMainComponent implements OnInit {
 
   constructor(
-    private ngbModal : NgbModal
+    public dialog : MatDialog
   ) { }
 
   ngOnInit(): void {
   }
 
   openCart(){
-    this.ngbModal.open(CartModalComponent);
+    this.dialog.open(CartModalComponent);
   }
 
 }

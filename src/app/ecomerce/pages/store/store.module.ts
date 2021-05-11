@@ -8,14 +8,23 @@ import { BubbleCategoriesComponent } from './components/bubble-categories/bubble
 import { ContainerStoreComponent } from './components/container-store/container-store.component';
 import { AddProductCartModalComponent } from './components/add-product-cart-modal/add-product-cart-modal.component';
 import { CartModalComponent } from './components/cart-modal/cart-modal.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [SidebarCategoryComponent, ListProductsComponent, BubbleCategoriesComponent, ContainerStoreComponent, AddProductCartModalComponent, CartModalComponent],
   imports: [
     CommonModule,
     StoreRoutingModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
   ]
 })
 export class StoreModule { }

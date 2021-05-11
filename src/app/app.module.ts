@@ -15,6 +15,12 @@ import { TopNavbarMainComponent } from './templates/components/top-navbar-main/t
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Angular Material
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, 
-    FormsModule, BrowserAnimationsModule
+    FormsModule,
+    //Angular Material
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
     
   ],
   providers: [
