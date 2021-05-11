@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { ConfigService } from 'src/app/config/config.service';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductCartInterface } from '../../interfaces/product-cart-interface';

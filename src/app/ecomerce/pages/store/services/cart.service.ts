@@ -11,11 +11,13 @@ export class CartService {
   products: ProductCartInterface[] = [];
 
   constructor(
-    private encryptionService : EncryptionService
-  ) { }
+    
+  ) {
+    
+   }
 
   addProduct(product:ProductCartInterface){
-
+    
     let productsLocal : string = localStorage.getItem(ConfigService.productsName);
     if (productsLocal) {
       this.products = JSON.parse(productsLocal);
