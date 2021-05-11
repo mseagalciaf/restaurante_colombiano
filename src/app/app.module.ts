@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { TopNavbarMainComponent } from './templates/components/top-navbar-main/top-navbar-main.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, 
-    FormsModule
+    FormsModule, BrowserAnimationsModule
     
   ],
   providers: [
