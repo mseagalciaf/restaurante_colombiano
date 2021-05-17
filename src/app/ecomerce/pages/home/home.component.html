@@ -6,13 +6,13 @@
                     <h2 class="text-center">Categorias</h2>
                 </div>
                 <div class="col-12 categorias-items">
-                    <ul>
-                        <li><i><img src="../../../../assets/icons/icons-categories/day-dish.JPG" alt=""></i><a href="">Menú del día</a></li>
-                        <li><i><img src="../../../../assets/icons/icons-categories/gourmet.JPG" alt=""></i><a href="">Comidas Gourmet</a></li>
-                        <li><i><img src="../../../../assets/icons/icons-categories/hamburger.JPG" alt=""></i><a href="">Comidas Rapidas</a></li>
-                        <li><i><img src="../../../../assets/icons/icons-categories/bebidas.JPG" alt=""></i><a href="">Bebidas</a></li>
-                        <li><i><img src="../../../../assets/icons/icons-categories/ice-cream.JPG" alt=""></i><a href="">Helados</a></li>
-                        <li><i><img src="../../../../assets/icons/icons-categories/entradas.JPG" alt=""></i><a href="">Entradas</a></li>
+                    <ul >
+                        <li *ngFor="let category of categories">
+                            <i>
+                                <img [src]="category.image">
+                            </i>
+                            <a href="">{{category.name}}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
