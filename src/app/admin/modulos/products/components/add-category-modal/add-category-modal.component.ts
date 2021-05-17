@@ -13,6 +13,7 @@ import { CategoriesComponent } from '../categories/categories.component';
 })
 export class AddCategoryModalComponent implements OnInit {
 
+  file:any;
   //-------Category to edit-------------
   @Input() isEdit:boolean=false;
   @Input() category_id:number=null; 
@@ -45,12 +46,16 @@ export class AddCategoryModalComponent implements OnInit {
   }
 
   createCategory(dataForm:CategoryInterface){
+    dataForm.image = this.file;
     this.categoryService.createCategory(dataForm).subscribe(
       resp => {
+        console.log(resp);
+        
         this.activeModal.close("se cerró");
       },
       error => console.log(error)      
     )
+
   }
 
   editCategory(dataForm:CategoryInterface, id:number = this.category_id){
@@ -60,6 +65,18 @@ export class AddCategoryModalComponent implements OnInit {
       },
       error => console.log(error)      
     )
+  }
+
+  changedFile(event){
+    let [file] = event.target.files;
+    
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = (e)=>{
+      var buffer = reader.result
+      this.file=buffer;
+    }
   }
 
 }

@@ -12,7 +12,8 @@ import { ModifierCreateComponent } from './components/modifier-create/modifier-c
 import { AddCategoryModalComponent } from './components/add-category-modal/add-category-modal.component';
 import { AddGroupModalComponent } from './components/add-group-modal/add-group-modal.component';
 import { AddModifierModalComponent } from './components/add-modifier-modal/add-modifier-modal.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [ProductCreateComponent, GroupCreateComponent, ProductsComponent, CategoriesComponent, GroupsComponent, ModifiersComponent, ModifierCreateComponent, AddCategoryModalComponent, AddGroupModalComponent, AddModifierModalComponent],
@@ -20,7 +21,9 @@ import { AddModifierModalComponent } from './components/add-modifier-modal/add-m
     CommonModule,
     ProductsRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class ProductsModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfigService } from 'src/app/config/config.service';
 import { CategoryService } from 'src/app/ecomerce/pages/store/services/category.service';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 import { AddCategoryModalComponent } from '../add-category-modal/add-category-modal.component';
@@ -13,6 +14,7 @@ export class CategoriesComponent implements OnInit {
 
   isLoading:boolean;
   categories: CategoryInterface[];
+  url_images=ConfigService.URL_IMAGES;
 
   constructor(
     private categoryService : CategoryService,
