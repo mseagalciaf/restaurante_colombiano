@@ -23,10 +23,13 @@
                         <input type="file" accept="image" autocomplete="off" (change)=changedFile($event)>  
                     </div>
                 </div>
-                <div *ngIf="file" class="col-12">
-                    <img [src]="file" width="200px" height="200px" alt="">
+                <div *ngIf="loadedImage" class="col-12">
+                    <img [src]="loadedImage" width="200px" height="200px" alt="">
                 </div>
-                <button *ngIf="!isEdit" type="submit" [disabled]="!file || checkoutCategoryCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+                <div *ngIf="!loadedImage && currentImage" class="col-12">
+                    <img [src]="currentImage" width="200px" height="200px" alt="">
+                </div>
+                <button *ngIf="!isEdit" type="submit" [disabled]="!loadedImage || checkoutCategoryCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
                 <button *ngIf="isEdit" type="button" (click)="editCategory(checkoutCategoryCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
             </form>
         </div>

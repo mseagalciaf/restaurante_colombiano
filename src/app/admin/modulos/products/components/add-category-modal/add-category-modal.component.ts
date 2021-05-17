@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfigService } from 'src/app/config/config.service';
 import { CategoryService } from 'src/app/ecomerce/pages/store/services/category.service';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 import { CategoriesComponent } from '../categories/categories.component';
@@ -13,7 +14,9 @@ import { CategoriesComponent } from '../categories/categories.component';
 })
 export class AddCategoryModalComponent implements OnInit {
 
-  file:any;
+  loadedImage:any;
+  currentImage:any;
+  url_images:string=ConfigService.URL_IMAGES;
   //-------Category to edit-------------
   @Input() isEdit:boolean=false;
   @Input() category_id:number=null; 
@@ -39,18 +42,16 @@ export class AddCategoryModalComponent implements OnInit {
     this.categoryService.getCategory(id).subscribe(
       resp => {
         this.checkoutCategoryCreateForm.controls['name'].setValue(resp.data.name);
-        this.checkoutCategoryCreateForm.controls['name'].setValue(resp.data.name);
+        resp.data.image?this.currentImage=this.url_images+resp.data.image:this.currentImage='assets/icons/icons-categories/default.jpg';
       },
       error => console.log(error)      
     )
   }
 
   createCategory(dataForm:CategoryInterface){
-    dataForm.image = this.file;
+    dataForm.image = this.loadedImage;
     this.categoryService.createCategory(dataForm).subscribe(
       resp => {
-        console.log(resp);
-        
         this.activeModal.close("se cerró");
       },
       error => console.log(error)      
@@ -59,6 +60,7 @@ export class AddCategoryModalComponent implements OnInit {
   }
 
   editCategory(dataForm:CategoryInterface, id:number = this.category_id){
+    this.loadedImage?dataForm.image=this.loadedImage:null;
     this.categoryService.updateCategory(dataForm,id).subscribe(
       resp => {
         this.activeModal.close();
@@ -75,7 +77,7 @@ export class AddCategoryModalComponent implements OnInit {
 
     reader.onload = (e)=>{
       var buffer = reader.result
-      this.file=buffer;
+      this.loadedImage=buffer;
     }
   }
 
