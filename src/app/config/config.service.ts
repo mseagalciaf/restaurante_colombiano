@@ -1,4 +1,5 @@
 import { HttpHeaders } from "@angular/common/http";
+import { SucursalInterface } from "../interfaces/sucursal-interface";
 
 export class ConfigService {
 
@@ -8,6 +9,9 @@ export class ConfigService {
   public static headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
+
+  // Variables globales
+  public static selectedSucursale:number;
 
   // LocalStorage Variables
   public static tokenName : string = "accessToken";

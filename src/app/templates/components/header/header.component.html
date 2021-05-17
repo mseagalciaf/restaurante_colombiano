@@ -1,22 +1,15 @@
 <div class="header-top-area">
     <div class="custom-container-two">
         <div class="flex-container">
-            <div class="">
-                <ul class="log">
-                    <li>
-                        <span> Ciudad seleccionada</span>
-                    </li>
-                    <li class="dropdown">
-                        <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pereria
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" >Pereira</a>
-                            <a class="dropdown-item" >Armenia</a>
-                            <a class="dropdown-item" >Manizales</a>
-                        </div>
-                    </li>  
-                </ul>
+            <div class="selectedCity">
+                <mat-form-field  style="font-size: 12px;">
+                    <mat-label>Ciudad seleccionada</mat-label>
+                    <mat-select [formControl]="selectedSucursale" (selectionChange)="changeSucursale($event.value)">
+                        <mat-option *ngFor="let sucursale of sucursales" [value]="sucursale.id" >
+                        {{sucursale.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
             <div class="">
                 <ul class="log">

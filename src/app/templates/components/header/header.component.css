@@ -1,4 +1,5 @@
 .header-top-area{
+    padding-bottom: 12px;
     background-color: #EEEEEE;
     color: #656565;
 }
@@ -7,8 +8,8 @@ li{
     list-style: none;
 }
 
-.dropdown a {
-    color: #656565;
+.selectedCity {
+    margin-left: 3%;
 }
 
 .flex-container{
@@ -49,4 +50,8 @@ li{
 .sign-in:hover, .login:hover{
     color: orange;
     cursor: pointer;
+}
+
+.mat-form-field {
+    height: auto;
 }
