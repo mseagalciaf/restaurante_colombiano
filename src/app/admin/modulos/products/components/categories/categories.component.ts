@@ -39,16 +39,14 @@ export class CategoriesComponent implements OnInit {
   }
 
   searchImage(){
-    let categories = this.categories.map((category)=>{
-      if (category.image) {
-        category.image = this.url_images+category.image;
-        return category;    
-      }else{
-        category.image = 'assets/icons/icons-categories/default.jpg';
-        return category;
-      }
+    this.categories = this.categories.map((category) => {
+      return {
+        ...category,
+        image: category.image
+          ? `${this.url_images}${category.image}`
+          : 'assets/icons/icons-categories/default.jpg',
+      };
     });
-    console.log(categories);
     
   }
 
@@ -64,11 +62,8 @@ export class CategoriesComponent implements OnInit {
     const ref = this.ngbModal.open(AddCategoryModalComponent);
     ref.componentInstance.isEdit = true;
     ref.componentInstance.category_id = id;
-    ref.closed.subscribe(resp=>this.getAllCategories()
-    );
-    ref.dismissed.subscribe(resp=>this.getAllCategories()
-    );
-    
+    ref.closed.subscribe(resp=>this.getAllCategories() );
+    ref.dismissed.subscribe(resp=>this.getAllCategories() );
   }
 
   deleteCategory(id:number){
