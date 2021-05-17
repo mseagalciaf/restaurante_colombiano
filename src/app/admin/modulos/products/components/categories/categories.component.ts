@@ -32,9 +32,24 @@ export class CategoriesComponent implements OnInit {
       resp => {
         this.isLoading=false;
         this.categories = resp.data;
+        this.searchImage();
       },
       error => console.log(error)
     )
+  }
+
+  searchImage(){
+    let categories = this.categories.map((category)=>{
+      if (category.image) {
+        category.image = this.url_images+category.image;
+        return category;    
+      }else{
+        category.image = 'assets/icons/icons-categories/default.jpg';
+        return category;
+      }
+    });
+    console.log(categories);
+    
   }
 
   addCategory(){
