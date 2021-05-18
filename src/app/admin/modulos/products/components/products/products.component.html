@@ -9,6 +9,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">ID</th>
+            <th scope="col">Imagen</th>
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
             <th scope="col">Categoria</th>
@@ -26,6 +27,9 @@
           </tr>
           <tr *ngFor="let product of products; let i = index">
             <th scope="row">{{product.id}}</th>
+            <td>
+              <img [src]="product.image">
+            </td>
             <td>{{product.name}}</td>
             <td>{{product.price | currency}}</td>
             <td><button class="btn btn-info mr-1">{{product.category_name}}</button></td>

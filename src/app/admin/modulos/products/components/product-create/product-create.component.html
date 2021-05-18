@@ -1,4 +1,4 @@
-<div class="container offset-1 text-secondary">
+<div class="container  text-secondary">
     <div class="col-8">
         <div *ngIf="isLoading" class="form-group col-12">
             <div class="spinner-border text-primary" role="status">
@@ -6,34 +6,54 @@
             </div>
         </div>
         <form *ngIf="!isLoading" [formGroup]="checkoutProductCreateForm" (ngSubmit)="createProduct(checkoutProductCreateForm.value)">
-            <div class="form-row">
-                <div class="form-group col-8">
-                    <label >Nombre del producto</label>
-                    <input type="text" class="form-control" id="inputName" formControlName="name" >
+            <div class="row">
+                <div class="col-4">
+                    <div class="from-group col-6 m-2">
+                        <div *ngIf="loadedImage" class="col-12">
+                            <img [src]="loadedImage" width="100px" height="100px" alt="">
+                        </div>
+                        <div *ngIf="!loadedImage && currentImage" class="col-12">
+                            <img [src]="currentImage" width="100px" height="100px" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-4">
-                    <label>Precio</label>
-                    <input type="number" class="form-control" id="inputPrice" formControlName="price">
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Categoria</label>
-                    <select id="inputRole" class="form-control" formControlName="category_id" >
-                        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
-                    </select>
+                <div class="col-8">
+                    <div class="form-row">
+                        <div class="form-group col-8">
+                            <label >Nombre del producto</label>
+                            <input type="text" class="form-control" id="inputName" formControlName="name" >
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Precio</label>
+                            <input type="number" class="form-control" id="inputPrice" formControlName="price">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Categoria</label>
+                            <select id="inputRole" class="form-control" formControlName="category_id" >
+                                <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <mat-label>Icono de la categoria</mat-label><br>
+                            <input type="file" accept="image" autocomplete="off" (change)=changedFile($event)>  
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Grupos de modificadores</label>
+                            <select id="inputGroup" class="form-control select" multiple formControlName="groups">
+                                <option *ngFor="let group of groups" [value]="group.id">{{group.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button *ngIf="!isEdit" type="submit" [disabled]="checkoutProductCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
+                    <button *ngIf="isEdit" type="button" (click)="editProduct(checkoutProductCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
+                    <button *ngIf="isEdit" type="button" (click)="deleteProduct()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
+                    <button  type="button" [routerLink]="['/admin/products/products']" class="btn btn-secondary mr-2">Cancelar</button>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>Grupos de modificadores</label>
-                    <select id="inputGroup" class="form-control select" multiple formControlName="groups">
-                        <option *ngFor="let group of groups" [value]="group.id">{{group.name}}</option>
-                    </select>
-                </div>
-            </div>
-            <button *ngIf="!isEdit" type="submit" [disabled]="checkoutProductCreateForm.invalid" class="btn btn-primary mr-2">Crear</button>
-            <button *ngIf="isEdit" type="button" (click)="editProduct(checkoutProductCreateForm.value)" class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Actualizar</button>
-            <button *ngIf="isEdit" type="button" (click)="deleteProduct()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i></button>
-            <button  type="button" [routerLink]="['/admin/products/products']" class="btn btn-secondary mr-2">Cancelar</button>
+            
         </form>
     </div>
 </div>

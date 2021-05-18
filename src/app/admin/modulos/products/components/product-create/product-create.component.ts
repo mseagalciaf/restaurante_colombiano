@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConfigService } from 'src/app/config/config.service';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 import { GroupInterface } from 'src/app/interfaces/group-interface';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
@@ -12,12 +13,15 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
+  url_images=ConfigService.URL_IMAGES;
   isLoading:boolean = false;
   isEdit:boolean;
   product_id:number;
   categories: Array<CategoryInterface>;
   groups: Array<GroupInterface>;
   myGroups: Array<number>;
+  currentImage:string;
+  loadedImage:any;
 
   public checkoutProductCreateForm = this.builderForm.group({
     name : ['', Validators.required],
@@ -52,12 +56,14 @@ export class ProductCreateComponent implements OnInit {
         this.checkoutProductCreateForm.controls['name'].setValue(resp.data.name);
         this.checkoutProductCreateForm.controls['price'].setValue(resp.data.price);
         this.checkoutProductCreateForm.controls['category_id'].setValue(resp.data.category_id);
+        resp.data.image?this.currentImage=this.url_images+resp.data.image:this.currentImage='assets/icons/icons-categories/default.jpg';
         this.myGroups=resp.data.groups;
       }
     )
   }
 
   createProduct(dataForm:ProductInterface){
+    dataForm.image = this.loadedImage;
     if (this.checkoutProductCreateForm.valid) {
       this.productService.createProduct(dataForm).subscribe(
         resp => {
@@ -71,6 +77,7 @@ export class ProductCreateComponent implements OnInit {
   }
 
   editProduct(dataForm:ProductInterface,id:number = this.product_id){
+    this.loadedImage?dataForm.image=this.loadedImage:null;
     if (this.checkoutProductCreateForm.valid) {
       this.productService.updateProduct(dataForm,id).subscribe(
         resp => {
@@ -106,6 +113,18 @@ export class ProductCreateComponent implements OnInit {
       },
       error => console.log(error)      
     )
+  }
+
+  changedFile(event){
+    let [file] = event.target.files;
+
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = (e)=>{
+      var buffer = reader.result
+      this.loadedImage=buffer;
+    }
   }
 
 }
