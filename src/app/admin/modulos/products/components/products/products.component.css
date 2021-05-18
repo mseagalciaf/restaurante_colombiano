@@ -3,3 +3,7 @@ img{
     height: 100px;
     border-radius: 20px 20px;
 }
+
+th, td{
+    vertical-align: middle;
+}
