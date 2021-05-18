@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductInterface } from '../interfaces/product-interface';
+import { ResponseJsonInterface } from '../interfaces/response-json-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class ProductService {
   getAllProducts(): Observable<any>{
     let customUrl = this.url+'products';
     return this.http.get(customUrl,{headers: this.headers});
+  }
+
+  getProductsFromSucursal(id:number): Observable<ResponseJsonInterface<ProductInterface[]>>{
+    let customUrl = `${this.url}sucursales/${id}/products`;
+    return this.http.get<ResponseJsonInterface<ProductInterface[]>>(customUrl, {headers: this.headers});
   }
 
   getProduct(id:number): Observable<any>{

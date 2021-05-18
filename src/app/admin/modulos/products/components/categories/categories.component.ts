@@ -47,7 +47,6 @@ export class CategoriesComponent implements OnInit {
           : 'assets/icons/icons-categories/default.jpg',
       };
     });
-    
   }
 
   addCategory(){

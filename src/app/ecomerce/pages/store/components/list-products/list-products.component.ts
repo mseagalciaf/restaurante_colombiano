@@ -3,6 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { ProductService } from 'src/app/services/product.service';
 import { AddProductCartModalComponent } from '../add-product-cart-modal/add-product-cart-modal.component';
+import { filter, map } from 'rxjs/operators';
+import { ConfigService } from 'src/app/config/config.service';
 
 @Component({
   selector: 'app-list-products',
@@ -11,6 +13,7 @@ import { AddProductCartModalComponent } from '../add-product-cart-modal/add-prod
 })
 export class ListProductsComponent implements OnInit {
 
+  currentSucursal=ConfigService.selectedSucursale;
   products : ProductInterface[];
 
   constructor(
@@ -22,13 +25,19 @@ export class ListProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts(){
-    this.product.getAllProducts().subscribe(
-      resp => {
-        this.products= resp.data;
-      },
-      error => console.log(error)
-    )
+  getProducts() {
+    this.currentSucursal.subscribe( sucursalId => {
+      this.product.getProductsFromSucursal(sucursalId).pipe(
+        map(data => data.data)
+      ).subscribe(
+        data => {
+          console.log(data);
+          
+          this.products= data;
+        },
+        error => console.log(error)
+      )
+    })
   }
 
   addProduct(id:number){

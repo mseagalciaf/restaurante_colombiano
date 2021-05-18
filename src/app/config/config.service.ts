@@ -1,4 +1,5 @@
 import { HttpHeaders } from "@angular/common/http";
+import { Subject } from "rxjs";
 import { SucursalInterface } from "../interfaces/sucursal-interface";
 
 export class ConfigService {
@@ -11,7 +12,7 @@ export class ConfigService {
   });
 
   // Variables globales
-  public static selectedSucursale:number;
+  // public static selectedSucursale:number;
 
   // LocalStorage Variables
   public static tokenName : string = "accessToken";
@@ -20,5 +21,10 @@ export class ConfigService {
 
   // Encryption Variables
   public static keyAES : string = "1234567890123456";
-  
+ 
+  public static selectedSucursale = new Subject<number>();
+
+  // public static setselectedSucursale(value: number) {
+  //   this.selectedSucursale.next(value);
+  // }
 }
