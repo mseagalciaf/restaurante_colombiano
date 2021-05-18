@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginInterface } from '../interfaces/login-interface';
 import { RegisterInterface } from '../interfaces/register-interface';
 import { Router } from '@angular/router';
+import { ConfigService } from '../config/config.service';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AuthServiceService {
 
-  url:string="http://mike.com/api_restaurante/public/api/"
+  url:string=ConfigService.URL;
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   })

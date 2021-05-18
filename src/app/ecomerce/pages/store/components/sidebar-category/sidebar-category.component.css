@@ -9,16 +9,16 @@ ul{
 li{
     margin-top: 5px;
     margin-bottom: 15px;
+    transition: 0.9s;
 }
 
 a{
     cursor: pointer;
     text-decoration-line: none;
-    transition: 0.9s;
     color: gray;
 }
 
-a:hover{
+li:hover{
     margin-left: 10px;
     color: #FF7F1B;
     

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ConfigService } from '../config/config.service';
 import { ProductInterface } from '../interfaces/product-interface';
 import { ResponseJsonInterface } from '../interfaces/response-json-interface';
 
@@ -9,7 +10,7 @@ import { ResponseJsonInterface } from '../interfaces/response-json-interface';
 })
 export class ProductService {
 
-  url:string="http://mike.com/api_restaurante/public/api/";
+  url:string=ConfigService.URL;
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });

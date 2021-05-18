@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ConfigService } from '../config/config.service';
 import { SucursalInterface } from '../interfaces/sucursal-interface';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { SucursalInterface } from '../interfaces/sucursal-interface';
 })
 export class SucursalService {
 
-  url:string="http://mike.com/api_restaurante/public/api/";
+  url:string=ConfigService.URL;
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ConfigService } from 'src/app/config/config.service';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 })
 export class CategoryService {
 
-  url:string="http://mike.com/api_restaurante/public/api/";
+  url:string=ConfigService.URL;
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   })

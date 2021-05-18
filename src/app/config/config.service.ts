@@ -5,8 +5,8 @@ import { SucursalInterface } from "../interfaces/sucursal-interface";
 export class ConfigService {
 
   // Connection Variables 
-  public static URL:string="http://mike.com/api_restaurante/public/api/";
-  public static URL_IMAGES="http://mike.com/api_restaurante/public/";
+  public static URL:string="http://localhost/api_restaurante/public/api/";
+  public static URL_IMAGES="http://localhost/api_restaurante/public/";
   public static headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
