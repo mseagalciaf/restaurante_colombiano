@@ -1,6 +1,6 @@
 <h3>Categorias</h3>
 <div>
     <ul>
-        <li *ngFor="let category of categories"><a href="">{{category.name}}</a></li>
+        <li *ngFor="let category of categories"><a  (click)="emitCategory(category.id)">{{category.name}}</a></li>
     </ul>
 </div>

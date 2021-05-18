@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 import { CategoryService } from '../../services/category.service';
 
@@ -9,6 +9,7 @@ import { CategoryService } from '../../services/category.service';
 })
 export class SidebarCategoryComponent implements OnInit {
 
+  @Output() emittedCategory = new EventEmitter<number>();
   categories:CategoryInterface[];
 
   constructor(
@@ -27,5 +28,9 @@ export class SidebarCategoryComponent implements OnInit {
       error => console.log(error)
       
     )
+  }
+
+  emitCategory(id:number){
+    this.emittedCategory.emit(id);
   }
 }

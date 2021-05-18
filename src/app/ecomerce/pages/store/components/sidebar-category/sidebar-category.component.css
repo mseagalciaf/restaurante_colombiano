@@ -12,6 +12,7 @@ li{
 }
 
 a{
+    cursor: pointer;
     text-decoration-line: none;
     transition: 0.9s;
     color: gray;

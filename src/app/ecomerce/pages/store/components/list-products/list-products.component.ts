@@ -15,9 +15,10 @@ export class ListProductsComponent implements OnInit {
 
   currentSucursal=ConfigService.selectedSucursale;
   products : ProductInterface[];
+  chosenCategory:number;
 
   constructor(
-    private product : ProductService,
+    private productService : ProductService,
     private ngbModal : NgbModal
   ) { }
 
@@ -27,13 +28,15 @@ export class ListProductsComponent implements OnInit {
 
   getProducts() {
     this.currentSucursal.subscribe( sucursalId => {
-      this.product.getProductsFromSucursal(sucursalId).pipe(
-        map(data => data.data)
+
+      this.productService.getProductsFromSucursal(sucursalId).pipe(
+        map(resp => resp.data),
+        
       ).subscribe(
-        data => {
-          console.log(data);
+        resp => {
+          this.chosenCategory? this.products= resp.filter(product => product.category_id==this.chosenCategory):this.products=resp;
+          console.log(this.products);
           
-          this.products= data;
         },
         error => console.log(error)
       )
@@ -43,6 +46,11 @@ export class ListProductsComponent implements OnInit {
   addProduct(id:number){
     const refModal = this.ngbModal.open(AddProductCartModalComponent, {centered: true, size: "lg"});
     refModal.componentInstance.id = id;
+  }
+
+  selectedCategory(categoryId:number){
+    this.chosenCategory = categoryId;
+    this.getProducts();
   }
 
 }
