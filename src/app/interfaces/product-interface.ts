@@ -1,3 +1,5 @@
+import { GroupInterface } from "./group-interface";
+
 export interface ProductInterface {
     id: number,
     name: string,
@@ -7,5 +9,5 @@ export interface ProductInterface {
     image:any,
     created_at?: string,
     updated_at?: string,
-    groups: Array<number>
+    groups: GroupInterface[]
 }
