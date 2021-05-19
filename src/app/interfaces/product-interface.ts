@@ -9,5 +9,6 @@ export interface ProductInterface {
     image:any,
     created_at?: string,
     updated_at?: string,
-    groups: GroupInterface[]
+    groups: GroupInterface[],
+    pivot: { activated:boolean }
 }

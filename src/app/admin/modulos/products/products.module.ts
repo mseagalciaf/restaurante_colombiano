@@ -15,6 +15,7 @@ import { AddModifierModalComponent } from './components/add-modifier-modal/add-m
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
+
 @NgModule({
   declarations: [ProductCreateComponent, GroupCreateComponent, ProductsComponent, CategoriesComponent, GroupsComponent, ModifiersComponent, ModifierCreateComponent, AddCategoryModalComponent, AddGroupModalComponent, AddModifierModalComponent],
   imports: [

@@ -1,0 +1,11 @@
+.mat-table{
+    width: 100%;
+}
+
+.mat-cell img{
+    width: 100px;
+    height: 100px;
+    padding: 2%;
+    border-radius: 20px 20px;
+}
+
