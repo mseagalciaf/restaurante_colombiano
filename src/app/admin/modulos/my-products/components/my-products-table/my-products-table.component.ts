@@ -56,6 +56,8 @@ export class MyProductsTableComponent implements OnInit {
     ).subscribe(
       resp => {
         let data = this.setImageProduct.searchImage(resp);
+        console.log(data);
+        
         this.dataSource = new MatTableDataSource(data);
       },
       error => console.log(error)      
