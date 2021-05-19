@@ -25,7 +25,7 @@
         <tr *ngFor="let sucursal of sucursales">
           <th scope="row">{{sucursal.id}}</th>
           <td>{{sucursal.name}}</td>
-          <td><button class="btn btn btn-secondary mr-1">{{sucursal.city_name}}</button></td>
+          <td><button *ngIf="sucursal.city" class="btn btn btn-secondary mr-1">{{sucursal.city.name}}</button></td>
           <td>
             <button class="btn btn btn-warning mr-2" (click)="editSucursal(sucursal.id)"><i class="fa fa-edit"></i></button>
             <button class="btn btn-danger" (click)="deleteSucursal(sucursal.id)"><i class="fa fa-trash"></i></button>
