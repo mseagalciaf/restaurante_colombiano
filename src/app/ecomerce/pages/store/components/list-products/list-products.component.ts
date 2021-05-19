@@ -21,17 +21,12 @@ export class ListProductsComponent implements OnInit {
     private productService : ProductService,
     private ngbModal : NgbModal
   ) {
-    console.log(ConfigService.currentSucursale);
    }
 
   ngOnInit(): void {
-    
-    this.getListProducts(this.currentSucursale);
     ConfigService.selectedSucursale.subscribe( sucursaleId => {
       this.getListProducts(sucursaleId);
     });
-    console.log(ConfigService.currentSucursale);
-
   }
 
   getListProducts(sucursalId:number){
