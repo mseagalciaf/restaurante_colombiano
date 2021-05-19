@@ -20,13 +20,17 @@ export class ListProductsComponent implements OnInit {
   constructor(
     private productService : ProductService,
     private ngbModal : NgbModal
-  ) { }
+  ) {
+    console.log(ConfigService.currentSucursale);
+   }
 
   ngOnInit(): void {
+    
     this.getListProducts(this.currentSucursale);
     ConfigService.selectedSucursale.subscribe( sucursaleId => {
       this.getListProducts(sucursaleId);
-    })
+    });
+    console.log(ConfigService.currentSucursale);
 
   }
 
@@ -36,7 +40,9 @@ export class ListProductsComponent implements OnInit {
     ).subscribe(
       resp => {
         this.products= resp.filter((product) => product.pivot.activated===1);
-        this.chosenCategory? this.products = this.products.filter((product) => product.category_id=this.chosenCategory):null;
+        //console.log(this.chosenCategory);
+        //this.chosenCategory? this.products = this.products.filter((product) => product.category_id=this.chosenCategory):this.products=[];
+        
       },
       error => console.log(error)
     )

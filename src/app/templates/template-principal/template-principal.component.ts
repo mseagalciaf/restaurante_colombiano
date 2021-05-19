@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from 'src/app/config/config.service';
+import { SucursalService } from 'src/app/services/sucursal.service';
 
 @Component({
   selector: 'app-template-principal',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplatePrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+    
   }
 
 }
