@@ -13,7 +13,7 @@ import { ConfigService } from 'src/app/config/config.service';
 })
 export class ListProductsComponent implements OnInit {
 
-  currentSucursal=ConfigService.selectedSucursale;
+  currentSucursale=ConfigService.currentSucursale;
   products : ProductInterface[];
   chosenCategory:number;
 
@@ -23,24 +23,23 @@ export class ListProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getListProducts(this.currentSucursale);
+    ConfigService.selectedSucursale.subscribe( sucursaleId => {
+      this.getListProducts(sucursaleId);
+    })
+
   }
 
-  getProducts() {
-    this.currentSucursal.subscribe( sucursalId => {
-
-      this.productService.getProductsFromSucursal(sucursalId).pipe(
-        map(resp => resp.data),
-        
-      ).subscribe(
-        resp => {
-          this.chosenCategory? this.products= resp.filter(product => product.category_id==this.chosenCategory):this.products=resp;
-          console.log(this.products);
-          
-        },
-        error => console.log(error)
-      )
-    })
+  getListProducts(sucursalId:number){
+    this.productService.getProductsFromSucursal(sucursalId).pipe(
+      map(resp => resp.data)
+    ).subscribe(
+      resp => {
+        this.products= resp.filter((product) => product.pivot.activated===1);
+        this.chosenCategory? this.products = this.products.filter((product) => product.category_id=this.chosenCategory):null;
+      },
+      error => console.log(error)
+    )
   }
 
   addProduct(id:number){
@@ -50,7 +49,7 @@ export class ListProductsComponent implements OnInit {
 
   selectedCategory(categoryId:number){
     this.chosenCategory = categoryId;
-    this.getProducts();
+    this.getListProducts(this.currentSucursale);
   }
 
 }
