@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
       resp => {
         this.sucursales = resp.data;
         this.selectedSucursale.setValue(this.sucursales[0].id);
-        ConfigService.selectedSucursale.next(this.sucursales[0].id);
+        ConfigService.setselectedSucursale(this.sucursales[0].id);
       },
       error => console.log(error)
     )

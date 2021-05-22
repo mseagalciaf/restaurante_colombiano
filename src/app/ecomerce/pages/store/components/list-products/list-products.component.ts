@@ -34,8 +34,7 @@ export class ListProductsComponent implements OnInit {
         
       ).subscribe(
         resp => {
-          this.chosenCategory? this.products= resp.filter(product => product.category_id==this.chosenCategory):this.products=resp;
-          console.log(this.products);
+          this.chosenCategory?this.products= resp.filter(product => product.category_id==this.chosenCategory):this.products=resp;
           
         },
         error => console.log(error)
@@ -50,7 +49,7 @@ export class ListProductsComponent implements OnInit {
 
   selectedCategory(categoryId:number){
     this.chosenCategory = categoryId;
-    this.getProducts();
+    ConfigService.selectedSucursale.next(ConfigService.currentSucursale);
   }
 
 }
