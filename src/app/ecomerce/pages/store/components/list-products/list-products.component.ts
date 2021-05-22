@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,7 +13,6 @@ import { ConfigService } from 'src/app/config/config.service';
 })
 export class ListProductsComponent implements OnInit {
 
-  currentSucursale=ConfigService.currentSucursale;
   products : ProductInterface[];
   chosenCategory:number;
 
@@ -27,6 +26,9 @@ export class ListProductsComponent implements OnInit {
     ConfigService.selectedSucursale.subscribe( sucursaleId => {
       this.getListProducts(sucursaleId);
     });
+    if (ConfigService.currentSucursale) {
+      ConfigService.setselectedSucursale(ConfigService.currentSucursale);
+    }
   }
 
   getListProducts(sucursalId:number){
