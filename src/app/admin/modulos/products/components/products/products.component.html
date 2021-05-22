@@ -31,7 +31,7 @@
               <img [src]="product.image">
             </td>
             <td>{{product.name}}</td>
-            <td>{{product.price | currency}}</td>
+            <td>{{product.price | currency:'':'symbol':'4.0-1'}}</td>
             <td><button class="btn btn-info mr-1">{{product.category_name}}</button></td>
             <td>
                 <div *ngFor="let group of products[i].groups" class="row">

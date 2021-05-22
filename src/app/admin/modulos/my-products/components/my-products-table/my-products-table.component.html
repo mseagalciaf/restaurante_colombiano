@@ -38,7 +38,7 @@
           <!-- Price Column -->
           <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
-            <td mat-cell *matCellDef="let row"> {{row.price}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.price | currency:'':'symbol':'4.0-1'}} </td>
           </ng-container>
 
           <!-- State Column -->
