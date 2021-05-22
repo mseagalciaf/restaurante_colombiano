@@ -31,10 +31,11 @@ export class ListProductsComponent implements OnInit {
 
   getListProducts(sucursalId:number){
     this.productService.getProductsFromSucursal(sucursalId).pipe(
-      map(resp => resp.data)
+      map(resp => resp.data),
     ).subscribe(
         resp => {
-          this.chosenCategory?this.products= resp.filter(product => product.category_id==this.chosenCategory):this.products=resp;
+          this.products=resp.filter((product)=>product.pivot.activated===1);
+          this.chosenCategory?this.products= this.products.filter(product => product.category_id==this.chosenCategory):null;
           
         },
         error => console.log(error)
