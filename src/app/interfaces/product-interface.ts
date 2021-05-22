@@ -1,3 +1,4 @@
+import { CategoryInterface } from "./category-inteface";
 import { GroupInterface } from "./group-interface";
 
 export interface ProductInterface {
@@ -10,5 +11,6 @@ export interface ProductInterface {
     created_at?: string,
     updated_at?: string,
     groups: GroupInterface[],
-    pivot: { activated:boolean }
+    category?: CategoryInterface,
+    pivot: { activated:number }
 }

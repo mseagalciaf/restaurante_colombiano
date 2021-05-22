@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeSucursale(id:number){
-    ConfigService.selectedSucursale.next(id);
+    ConfigService.setselectedSucursale(id);
   }
 
 }

@@ -13,34 +13,34 @@ import { ConfigService } from 'src/app/config/config.service';
 })
 export class ListProductsComponent implements OnInit {
 
-  currentSucursal=ConfigService.selectedSucursale;
+  currentSucursale=ConfigService.currentSucursale;
   products : ProductInterface[];
   chosenCategory:number;
 
   constructor(
     private productService : ProductService,
     private ngbModal : NgbModal
-  ) { }
+  ) {
+   }
 
   ngOnInit(): void {
-    this.getProducts();
+    ConfigService.selectedSucursale.subscribe( sucursaleId => {
+      this.getListProducts(sucursaleId);
+    });
   }
 
-  getProducts() {
-    this.currentSucursal.subscribe( sucursalId => {
-
-      this.productService.getProductsFromSucursal(sucursalId).pipe(
-        map(resp => resp.data),
-        
-      ).subscribe(
+  getListProducts(sucursalId:number){
+    this.productService.getProductsFromSucursal(sucursalId).pipe(
+      map(resp => resp.data)
+    ).subscribe(
         resp => {
           this.chosenCategory?this.products= resp.filter(product => product.category_id==this.chosenCategory):this.products=resp;
           
         },
         error => console.log(error)
       )
-    })
   }
+
 
   addProduct(id:number){
     const refModal = this.ngbModal.open(AddProductCartModalComponent, {centered: true, size: "lg"});
