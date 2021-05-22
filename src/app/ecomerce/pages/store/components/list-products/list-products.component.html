@@ -10,7 +10,7 @@
             <div class="col-5 card" *ngFor="let product of products">
                 <div class="card-content">
                     <div class="card-img">
-                        <img src="../../../../../../assets/img/carousel-home/comida1.jpg" class="card-img-top" alt="...">
+                        <img [src]="product.image" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
                         <div class="card-title">
@@ -20,7 +20,7 @@
                             <span class="badge badge-success">{{product.category_name}}</span>
                         </div>
                         <div class="card-description">
-                            <p  class="card-text">Un deliciosos arroz con pollo, verduras frescas y un toque de picante al gusto.</p>
+                            <p  class="card-text">Un delicioso arroz con pollo, verduras frescas y un toque de picante al gusto.</p>
                         </div>
                         <div class="card-button">
                             <span class="price">{{product.price | currency:'':'symbol':'4.0-1'}}</span>

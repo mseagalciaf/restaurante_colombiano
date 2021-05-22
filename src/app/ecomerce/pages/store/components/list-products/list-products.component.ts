@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { AddProductCartModalComponent } from '../add-product-cart-modal/add-product-cart-modal.component';
 import { filter, map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/config/config.service';
+import { SetImageProductsService } from 'src/app/services/set-image-products.service';
 
 @Component({
   selector: 'app-list-products',
@@ -18,7 +19,8 @@ export class ListProductsComponent implements OnInit {
 
   constructor(
     private productService : ProductService,
-    private ngbModal : NgbModal
+    private ngbModal : NgbModal,
+    private setImageProduct : SetImageProductsService
   ) {
    }
 
@@ -36,8 +38,10 @@ export class ListProductsComponent implements OnInit {
       map(resp => resp.data),
     ).subscribe(
         resp => {
-          this.products=resp.filter((product)=>product.pivot.activated===1);
+          let data = this.setImageProduct.searchImage(resp);
+          this.products=data.filter((product)=>product.pivot.activated===1);
           this.chosenCategory?this.products= this.products.filter(product => product.category_id==this.chosenCategory):null;
+          console.log(this.products);
           
         },
         error => console.log(error)
