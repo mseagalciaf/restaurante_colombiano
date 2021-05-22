@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/config/config.service';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
 import { GroupInterface } from 'src/app/interfaces/group-interface';
@@ -19,7 +20,7 @@ export class ProductCreateComponent implements OnInit {
   product_id:number;
   categories: Array<CategoryInterface>;
   groups: Array<GroupInterface>;
-  myGroups: Array<number>;
+  myGroups: GroupInterface[];
   currentImage:string;
   loadedImage:any;
 
@@ -50,14 +51,16 @@ export class ProductCreateComponent implements OnInit {
   }
 
   getProduct(id:number){
-    this.productService.getProduct(id).subscribe(
+    this.productService.getProduct(id).pipe(
+      map( (resp) => resp.data)
+    ).subscribe(
       resp => {
         this.isLoading=false;
-        this.checkoutProductCreateForm.controls['name'].setValue(resp.data.name);
-        this.checkoutProductCreateForm.controls['price'].setValue(resp.data.price);
-        this.checkoutProductCreateForm.controls['category_id'].setValue(resp.data.category_id);
-        resp.data.image?this.currentImage=this.url_images+resp.data.image:this.currentImage='assets/icons/icons-categories/default.jpg';
-        this.myGroups=resp.data.groups;
+        this.checkoutProductCreateForm.controls['name'].setValue(resp.name);
+        this.checkoutProductCreateForm.controls['price'].setValue(resp.price);
+        this.checkoutProductCreateForm.controls['category_id'].setValue(resp.category_id);
+        resp.image?this.currentImage=this.url_images+resp.image:this.currentImage='assets/icons/icons-categories/default.jpg';
+        this.myGroups=resp.groups;
       }
     )
   }

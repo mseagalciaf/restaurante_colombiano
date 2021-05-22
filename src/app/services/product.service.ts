@@ -29,9 +29,9 @@ export class ProductService {
     return this.http.get<ResponseJsonInterface<ProductInterface[]>>(customUrl, {headers: this.headers});
   }
 
-  getProduct(id:number): Observable<any>{
+  getProduct(id:number): Observable<ResponseJsonInterface<ProductInterface>>{
     let customUrl = this.url+'products/'+id;
-    return this.http.get<ProductInterface>(customUrl,{headers: this.headers});
+    return this.http.get<ResponseJsonInterface<ProductInterface>>(customUrl,{headers: this.headers});
   }
 
   createProduct(dataForm:ProductInterface): Observable<any>{
