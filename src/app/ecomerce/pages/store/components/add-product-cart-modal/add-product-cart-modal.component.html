@@ -11,21 +11,18 @@
             <h3>{{product.name}}</h3>
             <p class="description">dad ,asmda.sd,mas.,dma.sm</p>
             <div class="container container-groups">
-                <div class="col-12 item-group" *ngFor="let group of product.groups;let i = index">
-                    <h4>{{group.name}}</h4>
-                    <form [formGroup]="checkoutModifersForm">
-                        <div formGroupName="groups">
-                            <mat-radio-group [formControlName] = "i"
-                              aria-labelledby="example-radio-group-label"
-                              class="example-radio-group" *ngFor="let groups of product.groups; let i = index" >
-                                <label for="">{{groups.name}}</label>
-                                <mat-radio-button class="example-radio-button d-block"  *ngFor="let modifier of groups.modifiers" [value]="modifier">
-                                {{modifier.name}}
-                                </mat-radio-button>
-                            </mat-radio-group>
-                        </div>
-                    </form>
-                </div>
+                <form [formGroup]="checkoutModifersForm">
+                    <div formGroupName="modifiers">
+                        <mat-radio-group [formControlName] = "i"
+                            aria-labelledby="example-radio-group-label"
+                            class="example-radio-group" *ngFor="let groups of product.groups; let i = index" >
+                            <label for="">{{groups.name}}</label>
+                            <mat-radio-button #prueba class="example-radio-button d-block"  *ngFor="let modifier of groups.modifiers" [value]="modifier">
+                            {{modifier.name}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -36,7 +33,7 @@
             <button *ngIf="quantity > 1" class="btn btn-outline" style="flex-grow: 1;"  (click)="reducequantity()">-</button>
             <input type="number" class="total-counter col-xs-2" style="flex-grow: 1;"  [value]="quantity">
             <button class="btn btn-outline" (click)="addquantity()" style="flex-grow: 1;">+</button>
-            <button type="button" class="btn add-to-cart" (click)="addToCart()">Agregar<span class="price">{{total*quantity | currency:'':'symbol':'4.0-1'}}</span>
+            <button type="button" class="btn add-to-cart" (click)="addToCart(checkoutModifersForm.value.modifiers)">Agregar<span class="price">{{total*quantity | currency:'':'symbol':'4.0-1'}}</span>
             </button>
         </div>
     </div>

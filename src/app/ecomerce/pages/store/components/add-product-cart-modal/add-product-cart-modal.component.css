@@ -18,6 +18,14 @@ mat-dialog-actions a:hover{
     stroke: #FF7F1B;
 }
 
+:host ::ng-deep .mat-radio-checked .mat-radio-outer-circle , .mat-radio-outer-circle {
+    border-color: #FF7F1B !important;
+}
+  
+:host ::ng-deep .mat-radio-inner-circle{
+    background-color: #FF7F1B !important;
+}
+
 .add-to-cart{
     background-color: #FF7F1B;
     color: white;
@@ -45,13 +53,18 @@ h3{
     font-family: cursive;
     text-align: center;
     font-weight: bold;
-    color: black;
+    color: #FF7F1B;
 }
 
 .description{
     font-family: cursive;
     font-weight: 500;
     color: #7D7D7D;
+}
+
+.mat-radio-group label{
+    font-weight: bold;
+    color: black;
 }
 
 .container-groups{

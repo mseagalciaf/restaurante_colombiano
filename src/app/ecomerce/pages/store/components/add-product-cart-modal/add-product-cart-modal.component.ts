@@ -5,6 +5,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/config/config.service';
+import { ModifierInterface } from 'src/app/interfaces/modifier-interface';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { ProductService } from 'src/app/services/product.service';
 import { SetImageProductsService } from 'src/app/services/set-image-products.service';
@@ -41,7 +42,7 @@ export class AddProductCartModalComponent implements OnInit {
   createForm(product){
     this.checkoutModifersForm = this.formBuilder.group(
       {
-        groups : this.formBuilder.array(
+        modifiers : this.formBuilder.array(
           //Se devuelve un array
           product.groups.map(()=>new FormControl('',Validators.required))
         ),
@@ -65,11 +66,12 @@ export class AddProductCartModalComponent implements OnInit {
     )
   }
 
-  addToCart(){
+  addToCart(modifiersForm:ModifierInterface[]){
+    
     let total :string = (Number(this.product.price)*this.quantity).toString();
     let chosenProduct : ProductCartInterface={
       id : this.product.id,
-      modifiers : [1,1],
+      modifiers : modifiersForm,
       quantity : this.quantity,
       total : total
     };
