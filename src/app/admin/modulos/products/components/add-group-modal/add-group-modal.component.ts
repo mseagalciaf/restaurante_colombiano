@@ -39,6 +39,7 @@ export class AddGroupModalComponent implements OnInit {
     if (this.isEdit) {
       this.isGetting=true;
       this.getGroup(this.group_id);
+      this.getAllModifiers();
     }else{
       this.getAllModifiers()
     }
@@ -75,6 +76,8 @@ export class AddGroupModalComponent implements OnInit {
 
   editGroup(dataForm : GroupInterface, id:number = this.group_id){
     this.isLoading=true;
+    console.log(dataForm);
+    
     this.groupService.updateGroup(dataForm,id).subscribe(
       resp => {
         this.isLoading = false;

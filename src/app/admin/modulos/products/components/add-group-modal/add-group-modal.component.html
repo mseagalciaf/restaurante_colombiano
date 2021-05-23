@@ -19,6 +19,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Modificadores</label>
+                        <br>
                         <span *ngIf="!modifiers" class="text-secondary" >Ups.. aún no hay modificadores</span>
                         <select *ngIf="modifiers" id="inputGroup" class="form-control select" multiple formControlName="modifiers">
                             <option *ngFor="let modifier of modifiers" [value]="modifier.id">{{modifier.name}}</option>

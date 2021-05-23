@@ -1,6 +1,6 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { map } from 'rxjs/operators';
@@ -23,13 +23,11 @@ export class AddProductCartModalComponent implements OnInit {
   product: ProductInterface;
   quantityControl : FormControl = new FormControl(1);
   quantity:number = this.quantityControl.value;
-  checkoutModifersForm = this.formBuilder.group({
-    modifier : ['',Validators.required]
-  });
+  checkoutModifersForm:FormGroup;
   total:number;
 
   constructor(
-    private formBuilder : FormBuilder,
+    public formBuilder : FormBuilder,
     private productService : ProductService,
     private cartService : CartService,
     private setImageProduct : SetImageProductsService
@@ -40,15 +38,28 @@ export class AddProductCartModalComponent implements OnInit {
     this.getProduct(this.id);
   }
 
+  createForm(product){
+    this.checkoutModifersForm = this.formBuilder.group(
+      {
+        groups : this.formBuilder.array(
+          //Se devuelve un array
+          product.groups.map(()=>new FormControl('',Validators.required))
+        ),
+      }
+    )
+  }
+
   getProduct(id:number){
     this.productService.getProduct(id).pipe(
       map( (resp) => resp.data)
     ).subscribe(
       resp => {
+        this.createForm(resp);     
         this.product = resp;
         this.product.image? this.product.image = `${this.url_images}${this.product.image}`
         : 'assets/icons/icons-categories/default.jpg';
-        this.total = Number(this.product.price);         
+        this.total = Number(this.product.price); 
+        console.log(this.product);
       },
       error => console.log(error)
     )

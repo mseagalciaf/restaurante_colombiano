@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreRoutingModule } from './store-routing.module';
 import { SidebarCategoryComponent } from './components/sidebar-category/sidebar-category.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
@@ -24,6 +24,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CommonModule,
     StoreRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
@@ -32,9 +33,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSelectModule,
     MatRadioModule,
     MatProgressSpinnerModule
-  ],
-  providers: [
-    ConfigService
   ]
 })
 export class StoreModule { }

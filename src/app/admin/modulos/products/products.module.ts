@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductCreateComponent } from './components/product-create/product-create.component';
-import { GroupCreateComponent } from './components/group-create/group-create.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { GroupsComponent } from './components/groups/groups.component';
@@ -17,7 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [ProductCreateComponent, GroupCreateComponent, ProductsComponent, CategoriesComponent, GroupsComponent, ModifiersComponent, ModifierCreateComponent, AddCategoryModalComponent, AddGroupModalComponent, AddModifierModalComponent],
+  declarations: [ProductCreateComponent, ProductsComponent, CategoriesComponent, GroupsComponent, ModifiersComponent, ModifierCreateComponent, AddCategoryModalComponent, AddGroupModalComponent, AddModifierModalComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,

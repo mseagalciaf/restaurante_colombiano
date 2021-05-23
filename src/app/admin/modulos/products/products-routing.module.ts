@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { GroupCreateComponent } from './components/group-create/group-create.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { ModifierCreateComponent } from './components/modifier-create/modifier-create.component';
 import { ModifiersComponent } from './components/modifiers/modifiers.component';
@@ -23,9 +22,6 @@ const routes: Routes = [
   },
   {
     path: 'groups', component: GroupsComponent
-  },
-  {
-    path: 'group/create', component: GroupCreateComponent
   },
   {
     path: 'modifiers', component: ModifiersComponent
