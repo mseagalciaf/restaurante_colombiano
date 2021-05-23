@@ -22,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
     
   ],
   providers: [

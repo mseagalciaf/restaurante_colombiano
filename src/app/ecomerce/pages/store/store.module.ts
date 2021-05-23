@@ -12,8 +12,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ConfigService } from 'src/app/config/config.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [SidebarCategoryComponent, ListProductsComponent, BubbleCategoriesComponent, ContainerStoreComponent, AddProductCartModalComponent, CartModalComponent],
@@ -26,6 +28,8 @@ import { ConfigService } from 'src/app/config/config.service';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [
     ConfigService
