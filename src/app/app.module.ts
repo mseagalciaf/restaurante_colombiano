@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [

@@ -1,3 +1,7 @@
+<mat-spinner *ngIf="!product"></mat-spinner>
+<mat-dialog-actions align="end" *ngIf="product">
+    <a mat-dialog-close>X</a>
+</mat-dialog-actions>
 <div class="modal-body">
     <div class="row"  *ngIf="product"> 
         <div class="col-6 img-product-modal">

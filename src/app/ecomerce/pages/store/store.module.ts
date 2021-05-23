@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ConfigService } from 'src/app/config/config.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [SidebarCategoryComponent, ListProductsComponent, BubbleCategoriesComponent, ContainerStoreComponent, AddProductCartModalComponent, CartModalComponent],
@@ -29,7 +30,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     ConfigService

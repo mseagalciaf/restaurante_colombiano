@@ -1,3 +1,23 @@
+mat-dialog-actions{
+    padding: 0%;
+    margin-top: -2%;
+}
+
+mat-dialog-actions a{
+    font-size: larger;
+    font-weight: bold;
+    transition: 0.9s;
+}
+
+mat-dialog-actions a:hover{
+    color: #FF7F1B;
+    transform: rotate(180deg);
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+    stroke: #FF7F1B;
+}
+
 .add-to-cart{
     background-color: #FF7F1B;
     color: white;
