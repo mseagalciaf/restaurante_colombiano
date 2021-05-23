@@ -18,7 +18,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class AddProductCartModalComponent implements OnInit {
 
-  @Input() id:number;
+  @Input() id?:number;
   url_images=ConfigService.URL_IMAGES;
   product: ProductInterface;
   quantityControl : FormControl = new FormControl(1);
@@ -29,7 +29,6 @@ export class AddProductCartModalComponent implements OnInit {
   total:number;
 
   constructor(
-    public activeModal : NgbActiveModal,
     private formBuilder : FormBuilder,
     private productService : ProductService,
     private cartService : CartService,

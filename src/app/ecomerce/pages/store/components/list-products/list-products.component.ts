@@ -6,6 +6,7 @@ import { AddProductCartModalComponent } from '../add-product-cart-modal/add-prod
 import { filter, map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/config/config.service';
 import { SetImageProductsService } from 'src/app/services/set-image-products.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list-products',
@@ -20,6 +21,7 @@ export class ListProductsComponent implements OnInit {
   constructor(
     private productService : ProductService,
     private ngbModal : NgbModal,
+    public matDialog : MatDialog,
     private setImageProduct : SetImageProductsService
   ) {
    }
@@ -50,7 +52,7 @@ export class ListProductsComponent implements OnInit {
 
 
   addProduct(id:number){
-    const refModal = this.ngbModal.open(AddProductCartModalComponent, {centered: true, size: "lg"});
+    const refModal =this.matDialog.open(AddProductCartModalComponent);
     refModal.componentInstance.id = id;
   }
 
