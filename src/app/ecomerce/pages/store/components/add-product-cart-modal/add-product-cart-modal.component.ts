@@ -1,6 +1,7 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { map } from 'rxjs/operators';
@@ -31,7 +32,7 @@ export class AddProductCartModalComponent implements OnInit {
     public formBuilder : FormBuilder,
     private productService : ProductService,
     private cartService : CartService,
-    private setImageProduct : SetImageProductsService
+    public dialog : MatDialog
   ) { 
   }
 
@@ -67,7 +68,6 @@ export class AddProductCartModalComponent implements OnInit {
   }
 
   addToCart(modifiersForm:ModifierInterface[]){
-    
     let total :string = (Number(this.product.price)*this.quantity).toString();
     let chosenProduct : ProductCartInterface={
       id : this.product.id,
@@ -75,8 +75,8 @@ export class AddProductCartModalComponent implements OnInit {
       quantity : this.quantity,
       total : total
     };
-
     this.cartService.addProduct(chosenProduct);
+    this.dialog.closeAll();
   }
 
   addquantity(){

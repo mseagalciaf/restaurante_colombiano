@@ -33,7 +33,7 @@
             <button *ngIf="quantity > 1" class="btn btn-outline" style="flex-grow: 1;"  (click)="reducequantity()">-</button>
             <input type="number" class="total-counter col-xs-2" style="flex-grow: 1;"  [value]="quantity">
             <button class="btn btn-outline" (click)="addquantity()" style="flex-grow: 1;">+</button>
-            <button type="button" class="btn add-to-cart" (click)="addToCart(checkoutModifersForm.value.modifiers)">Agregar<span class="price">{{total*quantity | currency:'':'symbol':'4.0-1'}}</span>
+            <button type="button" class="btn add-to-cart" [disabled]="checkoutModifersForm.invalid" (click)="addToCart(checkoutModifersForm.value.modifiers)">Agregar<span class="price">{{total*quantity | currency:'':'symbol':'4.0-1'}}</span>
             </button>
         </div>
     </div>
