@@ -12,5 +12,6 @@ export interface ProductInterface {
     updated_at?: string,
     groups: GroupInterface[],
     category?: CategoryInterface,
-    pivot: { activated:number }
+    pivot: { activated:number },
+    total?: string
 }

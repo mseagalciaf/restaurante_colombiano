@@ -8,16 +8,18 @@ import { BubbleCategoriesComponent } from './components/bubble-categories/bubble
 import { ContainerStoreComponent } from './components/container-store/container-store.component';
 import { AddProductCartModalComponent } from './components/add-product-cart-modal/add-product-cart-modal.component';
 import { CartModalComponent } from './components/cart-modal/cart-modal.component';
+
+//---------------Angular Material--------------------------
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ConfigService } from 'src/app/config/config.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [SidebarCategoryComponent, ListProductsComponent, BubbleCategoriesComponent, ContainerStoreComponent, AddProductCartModalComponent, CartModalComponent],
@@ -34,7 +36,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatSelectModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatButtonModule
   ]
 })
 export class StoreModule { }
