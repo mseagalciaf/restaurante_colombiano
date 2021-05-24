@@ -5,6 +5,7 @@ import { CartModalComponent } from './ecomerce/pages/store/components/cart-modal
 import { ContainerStoreComponent } from './ecomerce/pages/store/components/container-store/container-store.component';
 import { ListProductsComponent } from './ecomerce/pages/store/components/list-products/list-products.component';
 import { SidebarCategoryComponent } from './ecomerce/pages/store/components/sidebar-category/sidebar-category.component';
+import { AdminGuard } from './guards/admin.guard';
 import { TemplateAdminComponent } from './templates/template-admin/template-admin.component';
 import { TemplatePrincipalComponent } from './templates/template-principal/template-principal.component';
 
@@ -55,7 +56,11 @@ const routes: Routes = [
         loadChildren: () => import('./admin/modulos/my-products/my-products.module').then(mod => mod.MyProductsModule)
       }
       
-    ]
+    ],
+    data: {
+      roles : [1,2]
+    },
+    canActivate: [AdminGuard]
   }
 ];
 
