@@ -2,10 +2,6 @@
     cursor: pointer;
 };
 
-.logout{
-    
-}
-
 .logout:hover{
     cursor: pointer;
     color: black!important;
