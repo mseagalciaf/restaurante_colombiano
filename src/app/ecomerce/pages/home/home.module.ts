@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CarouselHomeComponent } from './components/carousel-home/carousel-home.
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatDialogModule
   ]
 })
 export class HomeModule { }

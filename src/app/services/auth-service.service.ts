@@ -12,6 +12,7 @@ import { ConfigService } from '../config/config.service';
 })
 export class AuthServiceService {
 
+  public isForPay:boolean =false;
   url:string=ConfigService.URL;
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
@@ -41,19 +42,24 @@ export class AuthServiceService {
   userInfo():Observable<any>{
     let customUrl = this.url+"userinfo";
     return this.http.post(customUrl,null,{headers: this.headers});
-
-    
   }
 
   //--------------Localstorage----------------------
   setToken(token:string):void {
     let token_string=JSON.stringify(token);
-    localStorage.setItem("accessToken",token_string)
+    localStorage.setItem(ConfigService.tokenName,token_string)
   }
 
   setCurrentUser(user:any){
     let user_string= JSON.stringify(user);
-    localStorage.setItem("currentUser",user_string)
+    localStorage.setItem(ConfigService.currentUserName,user_string)
+  }
+
+  isLogined(){
+    if (localStorage.getItem(ConfigService.currentUserName)) {
+      return true;
+    }
+    return false;
   }
 
   //---------------Routing Roles-------------------------
@@ -68,7 +74,6 @@ export class AuthServiceService {
         break;
       case 3:
         this.router.navigate(['home'])
-        
         break;
           
       default:

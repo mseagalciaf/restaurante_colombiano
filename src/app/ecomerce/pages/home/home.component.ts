@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfigService } from 'src/app/config/config.service';
 import { CategoryInterface } from 'src/app/interfaces/category-inteface';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { CartModalComponent } from '../store/components/cart-modal/cart-modal.component';
 import { CategoryService } from '../store/services/category.service';
 
 @Component({
@@ -12,11 +15,21 @@ export class HomeComponent implements OnInit {
   url_images:string = ConfigService.URL_IMAGES;
   categories:CategoryInterface[];
   constructor(
-    private categoryService : CategoryService
+    private categoryService : CategoryService,
+    private authService : AuthServiceService,
+    private dialog : MatDialog
   ) { }
 
   ngOnInit(): void {
     this.getAllCategories();
+    if (this.authService.isForPay && this.authService.isLogined) {
+      const ref = this.dialog.open(CartModalComponent,{
+        width : "100%"
+      });
+      ref.componentInstance.divPay = true;
+      this.authService.isForPay=false;
+    }
+
   }
 
   getAllCategories(){

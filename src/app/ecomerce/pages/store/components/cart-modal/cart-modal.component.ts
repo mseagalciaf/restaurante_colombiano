@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/config/config.service';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { SetImageProductsService } from 'src/app/services/set-image-products.service';
 import { CartService } from '../../services/cart.service';
 
@@ -16,14 +19,18 @@ import { CartService } from '../../services/cart.service';
 
 export class CartModalComponent implements OnInit {
   
+  @Input() divPay:boolean=false;
   @ViewChild(MatPaginator) paginator : MatPaginator;
-  divPay:boolean=false;
+  
   products:ProductInterface[];
   total:number=0;
 
   constructor(
     private cartService : CartService,
-    private setImageProduct : SetImageProductsService
+    private setImageProduct : SetImageProductsService,
+    private authService : AuthServiceService,
+    private router : Router,
+    private dialog : MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -74,6 +81,12 @@ export class CartModalComponent implements OnInit {
   }
 
   goToPay(){
-    this.divPay=true;
+    if (this.authService.isLogined()) {
+      this.divPay=true;
+    }else{
+      this.authService.isForPay=true;
+      this.router.navigate(['/auth']);
+      this.dialog.closeAll();
+    }
   }
 }

@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginInterface } from 'src/app/interfaces/login-interface';
 import { AuthServiceService } from '../../services/auth-service.service'
 
@@ -20,10 +21,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder, 
-    private authApi:AuthServiceService
+    private authApi:AuthServiceService,
+    private router : Router,
+    private route : ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
+
   }
 
   onLogin(credentials:LoginInterface){
