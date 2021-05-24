@@ -43,8 +43,6 @@ export class ListProductsComponent implements OnInit {
           let data = this.setImageProduct.searchImage(resp);
           this.products=data.filter((product)=>product.pivot.activated===1);
           this.chosenCategory?this.products= this.products.filter(product => product.category_id==this.chosenCategory):null;
-          console.log(this.products);
-          
         },
         error => console.log(error)
       )

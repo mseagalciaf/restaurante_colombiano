@@ -105,7 +105,8 @@ export class CartModalComponent implements OnInit {
     dataForm.sucursale_id=ConfigService.currentSucursale;
     dataForm.user_id = user.id;
     dataForm.total = this.total.toString();
-    console.log(dataForm);
+    let localProducts: ProductInterface[] = JSON.parse(localStorage.getItem(ConfigService.productsName));
+    dataForm.products = localProducts.map( (product) => product.id );
     this.saleService.createSale(dataForm).subscribe(
       resp => {
         console.log(resp);
