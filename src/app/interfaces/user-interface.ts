@@ -1,3 +1,5 @@
+import { RoleInterface } from "./role-interface";
+
 export interface UserInterface {
     id: number,
     name: string,
@@ -6,5 +8,5 @@ export interface UserInterface {
     sucursale_name: string,
     created_at?: string,
     updated_at?: string,
-    roles: Array<any> 
+    roles: RoleInterface[] 
 }

@@ -30,7 +30,7 @@
         </div>
 
         <!-- Nav Item - Sucursales Collapse Menu -->
-        <li class="nav-item">
+        <li *ngIf="roles.includes(1)" class="nav-item">
             <div ngbDropdown class="dropdown">
                 <a class="nav-link collapsed" ngbDropdownToggle>
                     <i class="fa fa-building"></i>
@@ -46,7 +46,7 @@
         </li>
 
         <!-- Nav Item - Usuarios Collapse Menu -->
-        <li class="nav-item">
+        <li *ngIf="roles.includes(1)" class="nav-item">
             <div ngbDropdown class="dropdown">
                 <a class="nav-link collapsed" ngbDropdownToggle>
                     <i class="fa fa-users"></i>
@@ -61,8 +61,7 @@
         </li>
 
         <!-- Nav Item - Productos Collapse Menu -->
-        <li class="nav-item">
-
+        <li *ngIf="roles.includes(1)" class="nav-item">
             <div ngbDropdown class="dropdown">
                 <a class="nav-link collapsed" ngbDropdownToggle>
                     <i class="fa fa-apple"></i>
@@ -82,7 +81,7 @@
         </li>
 
         <!-- Nav Item - MisProductos Collapse Menu -->
-        <li class="nav-item">
+        <li *ngIf="roles.includes(1) || roles.includes(2)" class="nav-item">
             <div ngbDropdown class="dropdown">
                 <a class="nav-link collapsed" ngbDropdownToggle>
                     <i class="fa fa-apple"></i>
@@ -97,19 +96,19 @@
         </li>
 
         <!-- Nav Item - Ordenes -->
-        <li class="nav-item">
+        <li *ngIf="roles.includes(1) || roles.includes(2)" class="nav-item">
             <a class="nav-link" href="tables.html">
                 <i class="fa fa-fw fa-table"></i>
                 <span>Ordenes</span></a>
         </li>
 
         <!-- Heading -->
-        <div class="sidebar-heading">
+        <div  class="sidebar-heading">
             Ajustes de cuenta
         </div>
 
          <!-- Nav Item - Ajustes de cuenta -->
-         <li class="nav-item">
+         <li *ngIf="roles.includes(1) || roles.includes(2)" class="nav-item">
             <a class="nav-link" href="tables.html">
                 <i class="fa fa-fw fa-wrench"></i>
                 <span>Mi cuenta</span></a>
