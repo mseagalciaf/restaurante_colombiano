@@ -5,6 +5,8 @@ table{
 .mat-cell img {
     width: 100px;
     height: 100px;
+    border-radius: 20% 20%;
+    margin: 2%;
 }
  .badge{
 
@@ -26,4 +28,9 @@ table{
 .remove-product:hover{
     color: red;
     transform: rotate(180deg);
+}
+
+.mat-raised-button{
+    background-color: #27AE60;
+    color: white;
 }

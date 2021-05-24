@@ -17,6 +17,7 @@ import { CartService } from '../../services/cart.service';
 export class CartModalComponent implements OnInit {
   
   @ViewChild(MatPaginator) paginator : MatPaginator;
+  divPay:boolean=false;
   products:ProductInterface[];
   total:number=0;
 
@@ -49,6 +50,7 @@ export class CartModalComponent implements OnInit {
       map( resp => resp.data)
     ).subscribe(
       resp => {
+        this.total=0;
         let products : ProductInterface[]= [];
         localProducts.forEach(element => {
           let apiFoundProduct:ProductInterface = resp.find( (product) => product.id ==element.id);
@@ -59,7 +61,7 @@ export class CartModalComponent implements OnInit {
         products = this.setImageProduct.searchImage(products);
         this.dataSource.data = products;
         products.forEach(product => {
-          this.total =+ Number(product.total);
+          this.total += Number(product.total);
         });
       },
       error => console.log(error)      
@@ -69,5 +71,9 @@ export class CartModalComponent implements OnInit {
   deleteCartProduct(index:number){
     this.cartService.deleteProduct(index);
     this.getCartProducts();
+  }
+
+  goToPay(){
+    this.divPay=true;
   }
 }
