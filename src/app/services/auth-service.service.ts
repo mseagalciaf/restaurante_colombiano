@@ -5,6 +5,7 @@ import { LoginInterface } from '../interfaces/login-interface';
 import { RegisterInterface } from '../interfaces/register-interface';
 import { Router } from '@angular/router';
 import { ConfigService } from '../config/config.service';
+import { UserInterface } from '../interfaces/user-interface';
 
 
 @Injectable({
@@ -53,6 +54,11 @@ export class AuthServiceService {
   setCurrentUser(user:any){
     let user_string= JSON.stringify(user);
     localStorage.setItem(ConfigService.currentUserName,user_string)
+  }
+
+  getCurrentUser(){
+    let user:UserInterface = JSON.parse(localStorage.getItem(ConfigService.currentUserName));
+    return user;
   }
 
   isLogined(){

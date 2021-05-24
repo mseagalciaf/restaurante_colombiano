@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
@@ -8,6 +9,7 @@ import { ConfigService } from 'src/app/config/config.service';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { SetImageProductsService } from 'src/app/services/set-image-products.service';
+import { SaleInterface } from '../../interfaces/sale-interface';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -24,13 +26,19 @@ export class CartModalComponent implements OnInit {
   
   products:ProductInterface[];
   total:number=0;
+  checkoutSaleForm = this.formBuilder.group({
+    phone : ['',Validators.compose([Validators.required,Validators.minLength(10)])],
+    shipping_address : ['',Validators.required],
+    observations : ['']
+  });
 
   constructor(
     private cartService : CartService,
     private setImageProduct : SetImageProductsService,
     private authService : AuthServiceService,
     private router : Router,
-    private dialog : MatDialog
+    private dialog : MatDialog,
+    private formBuilder : FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -88,5 +96,13 @@ export class CartModalComponent implements OnInit {
       this.router.navigate(['/auth']);
       this.dialog.closeAll();
     }
+  }
+
+  pay(dataForm:SaleInterface){
+    let user = this.authService.getCurrentUser();
+    dataForm.sucursale_id=ConfigService.currentSucursale;
+    dataForm.user_id = user.id;
+    dataForm.total = this.total.toString();
+    console.log(dataForm);
   }
 }
