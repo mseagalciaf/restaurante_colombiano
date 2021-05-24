@@ -110,6 +110,8 @@ export class CartModalComponent implements OnInit {
     this.saleService.createSale(dataForm).subscribe(
       resp => {
         console.log(resp);
+        this.dialog.closeAll();
+        localStorage.removeItem(ConfigService.productsName);
       },
       error => console.log(error)      
     )
