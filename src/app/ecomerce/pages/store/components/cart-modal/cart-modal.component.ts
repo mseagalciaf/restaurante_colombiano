@@ -8,6 +8,7 @@ import { filter, map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/config/config.service';
 import { ProductInterface } from 'src/app/interfaces/product-interface';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { SaleService } from 'src/app/services/sale.service';
 import { SetImageProductsService } from 'src/app/services/set-image-products.service';
 import { SaleInterface } from '../../interfaces/sale-interface';
 import { CartService } from '../../services/cart.service';
@@ -38,7 +39,8 @@ export class CartModalComponent implements OnInit {
     private authService : AuthServiceService,
     private router : Router,
     private dialog : MatDialog,
-    private formBuilder : FormBuilder
+    private formBuilder : FormBuilder,
+    private saleService : SaleService
   ) { }
 
   ngOnInit(): void {
@@ -104,5 +106,11 @@ export class CartModalComponent implements OnInit {
     dataForm.user_id = user.id;
     dataForm.total = this.total.toString();
     console.log(dataForm);
+    this.saleService.createSale(dataForm).subscribe(
+      resp => {
+        console.log(resp);
+      },
+      error => console.log(error)      
+    )
   }
 }
