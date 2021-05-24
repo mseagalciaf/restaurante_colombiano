@@ -5,33 +5,55 @@
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position" >
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  <!-- image Column -->
+  <ng-container matColumnDef="image" >
+    <th mat-header-cell *matHeaderCellDef> Imagen </th>
+    <td mat-cell *matCellDef="let element"> 
+      <img [src]="element.image">
+    </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="name" >
-    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  <!-- modifiers Column -->
+  <ng-container matColumnDef="modifiers">
+    <th mat-header-cell *matHeaderCellDef> Opciones </th>
+    <td mat-cell *matCellDef="let element"> 
+      <div class="row" *ngFor="let modifier of element.modifiers">
+        <span class="badge m-2">{{modifier.name}}</span>
+      </div>
+    </td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol" >
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <!-- quantity Column -->
+  <ng-container matColumnDef="quantity" >
+    <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+  </ng-container>
+
+
+
+  <!-- total Column -->
+  <ng-container matColumnDef="total" >
+    <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+    <td mat-cell *matCellDef="let element"> {{element.total | currency:'':'symbol':'4.0-1'}} </td>
+  </ng-container>
+  
+
+  <!-- actions Column -->
+  <ng-container matColumnDef="actions" >
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element;let i = index">
+      <a class="remove-product" (click)="deleteCartProduct(i)">X</a>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
-
-<mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+<mat-paginator  showFirstLastButtons></mat-paginator>

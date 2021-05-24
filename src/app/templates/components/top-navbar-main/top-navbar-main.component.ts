@@ -18,7 +18,9 @@ export class TopNavbarMainComponent implements OnInit {
   }
 
   openCart(){
-    this.dialog.open(CartModalComponent);
+    this.dialog.open(CartModalComponent,{
+      width : "100%"
+    });
   }
 
 }

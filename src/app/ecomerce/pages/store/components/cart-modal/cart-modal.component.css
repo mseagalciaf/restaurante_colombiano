@@ -1,3 +1,29 @@
 table{
     width: 100%;
 }
+
+.mat-cell img {
+    width: 100px;
+    height: 100px;
+}
+ .badge{
+
+     background-color: #FF7F1B;
+     color: white;
+     font-size: 100%;
+ }
+
+.remove-product{
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: #FF7F1B;
+    font-size: larger;
+    font-weight: bold;
+    transition: 0.9s;
+}
+
+.remove-product:hover{
+    color: red;
+    transform: rotate(180deg);
+}

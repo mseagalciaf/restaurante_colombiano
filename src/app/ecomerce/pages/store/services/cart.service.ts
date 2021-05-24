@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ConfigService } from 'src/app/config/config.service';
+import { ProductInterface } from 'src/app/interfaces/product-interface';
+import { ResponseJsonInterface } from 'src/app/interfaces/response-json-interface';
 import { EncryptionService } from 'src/app/services/encryption.service';
 import { ProductCartInterface } from '../interfaces/product-cart-interface';
 
@@ -11,7 +15,7 @@ export class CartService {
   products: ProductCartInterface[] = [];
 
   constructor(
-    
+    private http : HttpClient
   ) {
     
    }
@@ -39,9 +43,19 @@ export class CartService {
   }
 
   deleteProduct(index:number){
-    this.products.splice(index,1);
-    console.log(this.products);
-    
+    let productsLocal : string = localStorage.getItem(ConfigService.productsName);
+    if (productsLocal) {
+      this.products = JSON.parse(productsLocal);
+      this.products.splice(index,1);
+
+      let localData = JSON.stringify(this.products);
+      localStorage.setItem(ConfigService.productsName,localData);
+    }
+  }
+
+  getValidatedProducts(sucursaleId:number,productIDs:number[]) :Observable<ResponseJsonInterface<ProductInterface[]>>{
+    let customUrl = `${ConfigService.URL}cart/validateProducts/${sucursaleId}`;
+    return this.http.post<ResponseJsonInterface<ProductInterface[]>>(customUrl,{products : productIDs },{headers: ConfigService.headers});
   }
 
 
